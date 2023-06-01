@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --bs-bg-bg-rgb:255,255,255;
+    --bs-bg-opacity:1;
+}
+ 
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/*這個要加上去.不然元素不會動作 */ 
+@keyframes demo { 
+    0% {
+        w: 100px;
+    }
+    100% {
+        w: 300px;
+    }
+    
+    
+} 
+
+</style>
+
+<script  >
+
+function click1 (element,element1) {
+
+    var elem = document.getElementById(element1);
+    
+    if(elem.classList.contains('show')){ 
+    
+        elem.classList.remove("show");
+    
+    }else{
+
+        elem.classList.add("show");
+        //elem.classList.add("w:0");
+       //elem.classList.add("~demo|0.6s|ease-in"); 
+           
+        
+ 
+    }
+//position: absolute; inset: 0px auto auto 0px; margin: 0px;
+//  transform:translate(602px,1836px)    
+}
+
+//參考: https://andyyou.github.io/2015/04/07/get-an-element-s-position-by-js/
+function getPosition (element) {
+  var x = 0;
+  var y = 0;
+  // 搭配上面的示意圖可比較輕鬆理解為何要這麼計算
+  while ( element ) {
+    x += element.offsetLeft - element.scrollLeft + element.clientLeft;
+    y += element.offsetTop - element.scrollLeft + element.clientTop;
+    element = element.offsetParent;
+  }
+  console.log(x);
+  console.log(y);
+
+  return { x: x, y: y };
+}
+
+
+//不可砍
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+ 
+ 
+</script>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/components/collapse/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+範例
+<div class="bd-example">
+    <p>
+      <a onclick="click1(this,'a01')" class="btn btn-primary collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Link with href
+      </a>
+      <button onclick="click1(this,'a01')"  class="btn btn-primary collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Button with data-bs-target
+      </button>
+    </p>
+    <div id="a01" class="collapse " id="collapseExample" style="">
+      <div class="card card-body">
+        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+      </div>
+    </div>
+</div>
+水平
+<div class="bd-example">
+    <p>
+      <button onclick="click1(this,'a02')" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+        Toggle width collapse
+      </button>
+    </p>
+    <div style="min-height: 120px;">
+      <div id="a02" class="collapse collapse-horizontal " id="collapseWidthExample">
+        <div class="card card-body ~demo|1s"  >
+          This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+        </div>
+      </div>
+    </div>
+</div>
+
+
+ 
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+}
+ 
+ 
+ 
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/layout/grid/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+
+Bootstrap 的網格系統使用一系列容器、行、和欄進行排版和對齊內容。它用 flexbox 建立<BR>
+ 
+.container 作為響應式的固定寬度,容器會置中 <BR>
+.container-fluid 的寬度在所有的設備上均為 width: 100%,<BR>
+.container-md) 主要用於搭配流體容器以及固定寬度容器的組合<BR>
+
+假如row寬度1164,col寬度1164/3=388<BR>
+<div class="bd-example bd-example-row"> 
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          Column
+        </div>
+        <div class="col">
+          Column
+        </div>
+        <div class="col">
+          Column
+        </div>
+      </div>
+    </div>
+</div> 
+sm-4 適用於sm，md，lg，xl 和 xxl
+<div class="bd-example bd-example-row"> 
+    <div class="container-sm ">
+      <div class="row">
+        <div class="col">
+          Column
+        </div>
+        <div class="col">
+          Column
+        </div>
+        <div class="col">
+          Column
+        </div>
+      </div>
+    </div>
+</div> 
+自動排版的欄
+<div class='bd-example bd-example-row '> 
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          1 of 2
+        </div>
+        <div class="col">
+          2 of 2
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          1 of 3
+        </div>
+        <div class="col">
+          2 of 3
+        </div>
+        <div class="col">
+          3 of 3
+        </div>
+      </div>
+    </div>
+</div> 
+設置一欄寬度<BR>
+1)假如row寬度1164,col-6寬度1164*50/100=582,其他的1164-582=582,582/2=291<BR>
+2)假如row寬度1164,col-5寬度1164*41.666/100=484.992,其他的1164-485=679,679/2=339.5<BR>
+
+<div class='bd-example bd-example-row'> 
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          1 of 3
+        </div>
+        <div class="col-6">
+          2 of 3 (wider)
+        </div>
+        <div class="col">
+          3 of 3
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          1 of 3
+        </div>
+        <div class="col-5">
+          2 of 3 (wider)
+        </div>
+        <div class="col">
+          3 of 3
+        </div>
+      </div>
+    </div>
+</div> 
+
+可變寬度內容<BR>
+col-md-auto,寬度我還找不出為何產生的???
+<div class='bd-example bd-example-row'> 
+    <div class="container">
+      <div class="row jc:center@bs-md">
+        <div class="col col-lg-2">
+          1 of 3
+        </div>
+        <div class="col-md-auto">
+          Variable width content
+        </div>
+        <div class="col col-lg-2">
+          3 of 3
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          1 of 3
+        </div>
+        <div class="col-md-auto">
+          Variable width content
+        </div>
+        <div class="col col-lg-2">
+          3 of 3
+        </div>
+      </div>
+    </div>
+</div> 
+響應式 Classes<BR>
+2)假如row寬度568,col-8寬度568*66.666/100=378.663,col-4的568*33.333/100=189.333<BR>
+<div class="bd-example bd-example-row"> 
+    <div class="container">
+      <div class="row">
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+      </div>
+      <div class="row">
+        <div class="col-8">col-8</div>
+        <div class="col-4">col-4</div>
+      </div>
+    </div>
+</div> 
+水平堆疊
+<div class="bd-example bd-example-row"> 
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">col-sm-8</div>
+        <div class="col-sm-4">col-sm-4</div>
+      </div>
+      <div class="row">
+        <div class="col-sm">col-sm</div>
+        <div class="col-sm">col-sm</div>
+        <div class="col-sm">col-sm</div>
+      </div>
+    </div>
+</div> 
+混合和匹配
+<div class="bd-example bd-example-row"> 
+    <div class="container">
+      <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+      <div class="row">
+        <div class="col-md-8">.col-md-8</div>
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+      </div>
+
+      <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+      <div class="row">
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+      </div>
+
+      <!-- Columns are always 50% wide, on mobile and desktop -->
+      <div class="row">
+        <div class="col-6">.col-6</div>
+        <div class="col-6">.col-6</div>
+      </div>
+    </div>
+</div>
+列與欄
+<div class="bd-example bd-example-row"> 
+    <div class="container">
+      <div class="row row-cols-2">
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+      </div>
+    </div>
+</div> 
+row-cols-3
+<div class="bd-example bd-example-row"> 
+    <div class="container">
+      <div class="row row-cols-3">
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+      </div>
+    </div>
+</div> 
+row-cols-auto
+<div class="bd-example bd-example-row"> 
+    <div class="container">
+      <div class="row row-cols-auto">
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+      </div>
+    </div>
+</div> 
+<div class="bd-example bd-example-row"> 
+    <div class="container">
+      <div class="row row-cols-4">
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+      </div>
+    </div>
+</div> 
+<div class="bd-example bd-example-row"> 
+    <div class="container">
+      <div class="row row-cols-4">
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col-6">Column</div>
+        <div class="col">Column</div>
+      </div>
+    </div>
+</div> 
+
+row-cols-1 row-cols-sm-2 row-cols-md-4
+<div class="bd-example bd-example-row"> 
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+      </div>
+    </div>
+</div> 
+
+巢狀
+<div class="bd-example bd-example-row"> 
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          Level 1: .col-sm-3
+        </div>
+        <div class="col-sm-9">
+          <div class="row">
+            <div class="col-8 col-sm-6">
+              Level 2: .col-8 .col-sm-6
+            </div>
+            <div class="col-4 col-sm-6">
+              Level 2: .col-4 .col-sm-6
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div> 
+
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --breadcrumb-divider:"/";
+    --bg-opacity: 1;
+    --dark-rgb:33,37,41;
+}
+
+
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: currentColor;
+    border: 0;
+    opacity: .25;
+} 
+
+.h5, h5 {
+    font-size: 1.25rem;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+} 
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+a:hover {
+    color: #0a58ca;
+}
+a {
+    color: #0d6efd;
+    text-decoration: underline;
+}
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+ol, ul {
+    padding-left: 2rem;
+}
+</style>
+<script  >
+ 
+
+//不可砍
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+ 
+ 
+</script>
+
+</head>
+<body >
+
+
+
+分頁 (Pagination)
+<div class="bd-example">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+      </ul>
+    </nav>
+</div>
+使用 icons
+<div class="bd-example">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="javascript:void(0);" aria-label="Previous">
+            <span aria-hidden="true">«</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="javascript:void(0);" aria-label="Next">
+            <span aria-hidden="true">»</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+</div>
+禁用和啟用狀態
+<div class="bd-example">
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item disabled">
+          <a class="page-link">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+        <li class="page-item active" aria-current="page">
+          <a class="page-link" href="javascript:void(0);">2</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="javascript:void(0);">Next</a>
+        </li>
+      </ul>
+    </nav>
+</div>
+active 或 disabled 的錨點改為 <span>
+<div class="bd-example">
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item disabled">
+          <span class="page-link">Previous</span>
+        </li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+        <li class="page-item active" aria-current="page">
+          <span class="page-link">2</span>
+        </li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="javascript:void(0);">Next</a>
+        </li>
+      </ul>
+    </nav>
+</div>
+尺寸
+<div class="bd-example">
+    <nav aria-label="...">
+      <ul class="pagination pagination-lg">
+        <li class="page-item active" aria-current="page">
+          <span class="page-link">1</span>
+        </li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+      </ul>
+    </nav>
+</div> 
+ 
+<div class="bd-example">
+    <nav aria-label="...">
+      <ul class="pagination pagination-sm">
+        <li class="page-item active" aria-current="page">
+          <span class="page-link">1</span>
+        </li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+      </ul>
+    </nav>
+</div> 
+對齊
+<div class="bd-example">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="javascript:void(0);">Next</a>
+        </li>
+      </ul>
+    </nav>
+</div>
+
+<div class="bd-example">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <li class="page-item disabled">
+          <a class="page-link">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="javascript:void(0);">Next</a>
+        </li>
+      </ul>
+    </nav>
+</div>
+
+ 
+ 
+ <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

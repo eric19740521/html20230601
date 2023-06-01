@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);    
+}
+
+@keyframes checkbox1 {
+    from {  top: 60%;  }
+    to {    top: 0%;   }
+}
+
+
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/forms/form-control/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+
+
+範例
+<div class="bd-example"> 
+    <div class="mb:16">
+      <label for="exampleFormControlInput1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="mb:16">
+      <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+</div>
+
+尺寸<BR>
+<div class="bd-example"> 
+    <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg" >
+    <input class="form-control" type="text" placeholder="Default input" >
+    <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm" >
+</div>
+
+禁用,使用disabled/readonly偽元素<BR>
+<div class="bd-example"> 
+    <input class="form-control " type="text" placeholder="Disabled input"  disabled>
+    <input class="form-control" type="text" placeholder="Disabled readonly input" readonly>
+</div>
+
+僅能閱讀的文本<BR>
+<div class="bd-example"> 
+  <div class="mb:16 row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text"  class="form-control-plaintext" id="staticEmail" value="email@example.com" readonly>
+    </div>
+  </div>
+  <div class="mb:16 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword">
+    </div>
+  </div>
+</div>
+
+<div class="bd-example">
+    <form class="row g-3">
+      <div class="col-auto">
+        <label for="staticEmail2" class="visually-hidden">Email</label>
+        <input type="text" readonly="" class="form-control-plaintext" id="staticEmail2" value="email@example.com">
+      </div>
+      <div class="col-auto">
+        <label for="inputPassword2" class="visually-hidden">Password</label>
+        <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+      </div>
+    </form>
+</div>
+
+
+<div class="bd-example"> 
+    <div class="mb:16">
+      <label for="formFile" class="form-label">Default file input example</label>
+      <input class="file-input file-input-primary" type="file" id="formFile">
+    </div>
+    <div class="mb:16">
+      <label for="formFileMultiple" class="form-label">Multiple files input example</label>
+      <input class="file-input file-input-secondary" type="file" id="formFileMultiple" multiple>
+    </div>
+    <div class="mb:16">
+      <label for="formFileDisabled" class="form-label">Disabled file input example</label>
+      <input class="file-input file-input-disabled" type="file" id="formFileDisabled" disabled>
+    </div>
+    <div class="mb:16">
+      <label for="formFileSm" class="form-label">Small file input example</label>
+      <input class="file-input file-input-primary file-input-sm" id="formFileSm" type="file">
+    </div>
+    <div>
+      <label for="formFileLg" class="form-label">Large file input example</label>
+      <input class="file-input file-input-primary file-input-lg" id="formFileLg" type="file">
+    </div>
+</div>
+ 
+
+
+
+	 <BR> <BR>
+</body>
+</html>

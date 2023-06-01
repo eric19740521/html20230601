@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+ 
+ 
+a {
+    color: #0d6efd;
+    text-decoration: underline;
+} 
+
+hr:not([size]) {
+    height: 1px;
+}
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: currentColor;
+    border: 0;
+    opacity: .25;
+}
+.h4, h4 {
+    font-size: calc(1.275rem + .3vw);
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+</style>
+    <script  >	
+		
+        
+var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+var i=1;
+
+function alert(message, type) {
+  var wrapper ;
+  wrapper = '<div id="a'+i+'" class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button onclick="close1(\'a'+i+'\')" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+
+
+  console.log(wrapper);
+  document.getElementById('liveAlertPlaceholder').innerHTML = document.getElementById('liveAlertPlaceholder').innerHTML + wrapper;
+  
+  i=i+1;
+}
+function close1(id){
+
+  document.getElementById(id).classList.add("d-none"); 
+
+}
+    
+ 
+    </script>
+
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/components/alerts/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+css語法 蠻多要注意的,控制元件的展開閉合是由JS控制aria-expanded屬性值,這部分可以看我寫的範例<BR>
+
+
+ 範例
+<div class="bd-example">
+
+    <div class="alert alert-primary" role="alert">
+      A simple primary alert—check it out!
+    </div>
+    <div class="alert alert-secondary" role="alert">
+      A simple secondary alert—check it out!
+    </div>
+    <div class="alert alert-success" role="alert">
+      A simple success alert—check it out!
+    </div>
+    <div class="alert alert-danger" role="alert">
+      A simple danger alert—check it out!
+    </div>
+    <div class="alert alert-warning" role="alert">
+      A simple warning alert—check it out!
+    </div>
+    <div class="alert alert-info" role="alert">
+      A simple info alert—check it out!
+    </div>
+    <div class="alert alert-light" role="alert">
+      A simple light alert—check it out!
+    </div>
+    <div class="alert alert-dark" role="alert">
+      A simple dark alert—check it out!
+    </div>
+</div>
+動態範例
+<div class="bd-example">
+    <div id="liveAlertPlaceholder">
+
+
+    </div>
+    <button  onclick="alert('插播一條快訊','success')" type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
+</div>
+連結顏色
+<div class="bd-example">
+
+    <div class="alert alert-primary" role="alert">
+      A simple primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+    </div>
+    <div class="alert alert-secondary" role="alert">
+      A simple secondary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+    </div>
+    <div class="alert alert-success" role="alert">
+      A simple success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+    </div>
+    <div class="alert alert-danger" role="alert">
+      A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+    </div>
+    <div class="alert alert-warning" role="alert">
+      A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+    </div>
+    <div class="alert alert-info" role="alert">
+      A simple info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+    </div>
+    <div class="alert alert-light" role="alert">
+      A simple light alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+    </div>
+    <div class="alert alert-dark" role="alert">
+      A simple dark alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+    </div>
+</div>
+額外的內容
+<div class="bd-example">
+    <div class="alert alert-success" role="alert">
+      <h4 class="alert-heading">Well done!</h4>
+      <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+      <hr>
+      <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+    </div>
+</div>
+
+Icons
+<div class="bd-example">
+    <div class="alert alert-primary d-flex align-items-center" role="alert">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+      </svg>
+      <div>
+        An example alert with an icon
+      </div>
+    </div>
+</div>
+
+<div class="bd-example">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
+      </symbol>
+      <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"></path>
+      </symbol>
+      <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+      </symbol>
+    </svg>
+
+    <div class="alert alert-primary d-flex align-items-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"></use></svg>
+      <div>
+        An example alert with an icon
+      </div>
+    </div>
+    <div class="alert alert-success d-flex align-items-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"></use></svg>
+      <div>
+        An example success alert with an icon
+      </div>
+    </div>
+    <div class="alert alert-warning d-flex align-items-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"></use></svg>
+      <div>
+        An example warning alert with an icon
+      </div>
+    </div>
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"></use></svg>
+      <div>
+        An example danger alert with an icon
+      </div>
+    </div>
+</div>
+
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

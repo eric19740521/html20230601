@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+ 
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --bg-bg-rgb:255,255,255;
+    --bg-opacity:1;
+}
+ 
+/*這個要加上去.不然元素不會動作 */ 
+@keyframes progress-bar-stripes { 
+    0% {
+        background-position-x: 1rem;
+    }
+} 
+</style>
+
+    <script  >	
+function toast_close1 (element1) {
+
+    var elem = document.getElementById(element1);
+    
+  
+    if(elem.classList.contains('show')){ 
+    
+        elem.classList.remove("show");
+        elem.classList.add("hide");
+        //elem.style.setProperty('visibility', 'hidden'); 
+     
+    }else{
+
+        elem.classList.remove("hide");
+        elem.classList.add("show");
+        //elem.style.setProperty('visibility', 'visible');   
+
+ 
+    }
+}
+function toast_click1 (element1) {
+
+    var elem = document.getElementById(element1);
+    
+  
+    if(elem.classList.contains('show')){ 
+    
+        elem.classList.remove("show");
+        elem.classList.add("hide");
+        //elem.style.setProperty('visibility', 'hidden'); 
+     
+    }else{
+
+        elem.classList.remove("hide");
+        elem.classList.add("show");
+        //elem.style.setProperty('visibility', 'visible');   
+
+ 
+    }
+  
+} 
+
+function selectFun() {
+    var elem = document.getElementById('selectToastPlacement');
+  const switchValue = elem.options[elem.selectedIndex].value;
+  
+  var elem1 = document.getElementById('toastPlacement');
+
+    console.log(switchValue);
+    console.log(switchValue.split(' '))
+    //toast-container position-absolute p-3
+    //elem.className = '';
+
+    var classList = elem1.classList;
+    while (classList.length > 0) {
+       classList.remove(classList.item(0));
+    }
+    
+    elem1.classList.add("toast-container");
+    elem1.classList.add("position-absolute");
+    elem1.classList.add("p-3");
+    
+    let arr = switchValue.split(' ')
+    if( arr.length > 0){
+        for(var i=0; i<arr.length; ++i){
+            elem1.classList.add(arr[i])
+        }
+    }
+    
+    ;
+}
+
+
+//參考: https://andyyou.github.io/2015/04/07/get-an-element-s-position-by-js/
+function getPosition (element) {
+  var x = 0;
+  var y = 0;
+  // 搭配上面的示意圖可比較輕鬆理解為何要這麼計算
+  while ( element ) {
+    x += element.offsetLeft - element.scrollLeft + element.clientLeft;
+    y += element.offsetTop - element.scrollLeft + element.clientTop;
+    element = element.offsetParent;
+  }
+  console.log(x);
+  console.log(y);
+
+  return { x: x, y: y };
+}
+
+
+//不可砍
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+ 
+ 
+    </script>	
+
+</head>
+<body >
+
+吐司 (Toasts)<BR>
+
+ role 和 aria-live 的等級.這個我沒有實現??
+<div class="bd-example bg-light">
+    <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+
+        <strong class="me-auto">Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+    </div>
+</div>
+Live example
+<div class="bd-example">
+  <button onclick="toast_click1('liveToast')"  type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast fade  hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button onclick="toast_close1('liveToast')" type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>
+</div>
+
+半透明
+<div class="bd-example bg-dark">
+    <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+
+        <strong class="me-auto">Bootstrap</strong>
+        <small class="text-muted">11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+    </div>
+</div>
+堆疊
+<div class="bd-example bg-light">
+    <div class="toast-container">
+      <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+
+          <strong class="me-auto">Bootstrap</strong>
+          <small class="text-muted">just now</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          See? Just like this.
+        </div>
+      </div>
+
+      <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+
+          <strong class="me-auto">Bootstrap</strong>
+          <small class="text-muted">2 seconds ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Heads up, toasts will stack automatically
+        </div>
+      </div>
+    </div>
+</div>
+自定義內容
+<div class="bd-example bg-light">
+    <div class="toast align-items-center fade show" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+        Hello, world! This is a toast message.
+       </div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+</div>
+額外的控制項與元件
+<div class="bd-example bg-light">
+    <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+        <div class="mt-2 pt-2 border-top">
+          <button type="button" class="btn btn-primary btn-sm">Take action</button>
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+配色方案
+<div class="bd-example bg-light">
+    <div class="toast align-items-center text-white bg-primary bs-border-0 fade show" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+</div>
+位置
+<div class="bd-example">
+    <form>
+      <div class="mb-3">
+        <label for="selectToastPlacement">Toast placement</label>
+        <select onchange="selectFun()" class="form-select mt-2" id="selectToastPlacement">
+          <option value="" selected="">Select a position...</option>
+          <option value="top-0 start-0">Top left</option>
+          <option value="top-0 start-50 translate-middle-x">Top center</option>
+          <option value="top-0 end-0">Top right</option>
+          <option value="top-50 start-0 translate-middle-y">Middle left</option>
+          <option value="top-50 start-50 translate-middle">Middle center</option>
+          <option value="top-50 end-0 translate-middle-y">Middle right</option>
+          <option value="bottom-0 start-0">Bottom left</option>
+          <option value="bottom-0 start-50 translate-middle-x">Bottom center</option>
+          <option value="bottom-0 end-0">Bottom right</option>
+        </select>
+      </div>
+    </form>
+    <div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts">
+      <div class="toast-container position-absolute p-3" id="toastPlacement">
+        <div class="toast fade show">
+          <div class="toast-header">
+            <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+
+            <strong class="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+          </div>
+          <div class="toast-body">
+            Hello, world! This is a toast message.
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+讓它們可以堆疊顯示。
+<div class="bd-example bg-dark bd-example-toasts p-0">
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+      <!-- Position it: -->
+      <!-- - `.toast-container` for spacing between toasts -->
+      <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
+      <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
+      <div class="toast-container position-absolute top-0 end-0 p-3">
+
+        <!-- Then put toasts within -->
+        <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <svg class="bd-placeholder-img bs-rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+
+            <strong class="me-auto">Bootstrap</strong>
+            <small class="text-muted">just now</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            See? Just like this.
+          </div>
+        </div>
+
+        <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <svg class="bd-placeholder-img bs-rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+
+            <strong class="me-auto">Bootstrap</strong>
+            <small class="text-muted">2 seconds ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Heads up, toasts will stack automatically
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+做水平 和/或 垂直的對齊
+<div class="bd-example bg-dark bd-example-toasts d-flex">
+    <!-- Flexbox container for aligning the toasts -->
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
+
+      <!-- Then put toasts within -->
+      <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+
+          <strong class="me-auto">Bootstrap</strong>
+          <small>11 mins ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+      </div>
+    </div>
+</div>
+親和性
+<div class="bd-example bg-light">
+    <div role="alert" aria-live="assertive" aria-atomic="true" class="toast fade show" data-bs-autohide="false">
+      <div class="toast-header">
+        <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+
+        <strong class="me-auto">Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+    </div>
+</div>
+
+
+
+ 
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

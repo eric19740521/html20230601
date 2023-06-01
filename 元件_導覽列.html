@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+function click1 (element,element1) {
+
+    var elem = document.getElementById(element1);
+    
+    if(elem.classList.contains('show')){ 
+    
+        elem.classList.remove("show");
+    
+    }else{
+
+        elem.classList.add("show");
+        
+        var w = element.offsetWidth;    // 返回元素的总宽度
+        var h = element.offsetHeight;    // 返回元素的总高度
+        
+        
+        console.log("元素w*h:" + w + "px," + h + "px");
+        
+        var x=0;
+        var y=h+4;
+           
+       
+        var str1="translate(" + x + "px," + y + "px) ";
+        console.log(str1);
+
+        elem.style.setProperty('position', 'absolute');       //測試!!可以不需要
+        elem.style.setProperty('margin', '0px');              //測試!!可以不需要
+        elem.style.setProperty('inset', '0px auto auto 0px');  //這個對於位置很重要
+        //elem.style.setProperty('inset', '0px 0px 0px 0px');  //改成這樣.會產生什麼後果???
+        elem.style.setProperty('transform', str1);              //這個對於位置很重要  
+    }
+//position: absolute; inset: 0px auto auto 0px; margin: 0px;
+//  transform:translate(602px,1836px)    
+}
+
+
+function click02 (element,element1) {
+
+    var elem = document.getElementById(element1);
+    
+    if(elem.classList.contains('show')){ 
+    
+        elem.classList.remove("show");
+    
+    }else{
+
+        elem.classList.add("show");
+        
+  
+    }
+    
+}
+
+
+//參考: https://andyyou.github.io/2015/04/07/get-an-element-s-position-by-js/
+function getPosition (element) {
+  var x = 0;
+  var y = 0;
+  // 搭配上面的示意圖可比較輕鬆理解為何要這麼計算
+  while ( element ) {
+    x += element.offsetLeft - element.scrollLeft + element.clientLeft;
+    y += element.offsetTop - element.scrollLeft + element.clientTop;
+    element = element.offsetParent;
+  }
+  console.log(x);
+  console.log(y);
+
+  return { x: x, y: y };
+}
+
+
+//不可砍
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+ 
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --breadcrumb-divider:"/";
+    --bg-opacity: 1;
+    --dark-rgb:33,37,41;
+}
+
+
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: currentColor;
+    border: 0;
+    opacity: .25;
+} 
+
+.h5, h5 {
+    font-size: 1.25rem;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+} 
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+a:hover {
+    color: #0a58ca;
+}
+a {
+    color: #0d6efd;
+    text-decoration: underline;
+}
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+ol, ul {
+    padding-left: 2rem;
+}
+</style>
+ 
+
+</head>
+<body >
+
+
+
+導覽列 (Navbar)
+<div class="bd-example">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0);">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a onclick="click1(this,'aul01')"  class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul id="aul01" class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+</div>
+ .navbar-brand 類別
+<div class="bd-example">
+    <!-- As a link -->
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+      </div>
+    </nav>
+
+    <!-- As a heading -->
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Navbar</span>
+      </div>
+    </nav>
+</div>
+Image
+<div class="bd-example">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="javascript:void(0);">
+          <img src="bootstrap-logo.svg" alt="" width="30" height="24">
+        </a>
+      </div>
+    </nav>
+</div>
+Image and text
+<div class="bd-example">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0);">
+          <img src="bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+          Bootstrap
+        </a>
+      </div>
+    </nav>
+</div>
+導覽
+<div class="bd-example">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0);">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0);">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</div>
+
+<div class="bd-example">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0);">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0);">Pricing</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown link
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</div>
+表單
+<div class="bd-example">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+</div>
+
+<div class="bd-example">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+</div>
+input 群組
+<div class="bd-example">
+    <nav class="navbar navbar-light bg-light">
+      <form class="container-fluid">
+        <div class="input-group">
+          <span class="input-group-text" id="basic-addon1">@</span>
+          <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+      </form>
+    </nav>
+</div>
+支援各種按鈕 
+<div class="bd-example">
+    <nav class="navbar navbar-light bg-light">
+      <form class="container-fluid justify-content-start">
+        <button class="btn btn-outline-success me-2" type="button">Main button</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
+      </form>
+    </nav>
+</div> 
+文字
+<div class="bd-example">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-text">
+          Navbar text with an inline element
+        </span>
+      </div>
+    </nav>
+</div>
+其他元件和通用類別混合使用
+<div class="bd-example">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+        <button onclick="click02(this,'navbarText')"  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0);">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0);">Pricing</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            Navbar text with an inline element
+          </span>
+        </div>
+      </div>
+    </nav>
+</div>
+顏色方案
+<div class="bd-example">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+      <button  onclick="click02(this,'navbarColor01')"  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);">About</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+      <button onclick="click02(this,'navbarColor02')" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);">About</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+      <button onclick="click02(this,'navbarColor03')" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);">About</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</div>
+容器
+<div class="bd-example">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+        </div>
+      </nav>
+    </div>
+</div>
+<div class="bd-example">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-md">
+        <a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+      </div>
+    </nav>
+</div>
+定位
+<div class="bd-example">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0);">Default</a>
+      </div>
+    </nav>
+</div>
+
+<div class="bd-example">
+    <nav class="navbar fixed-top navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0);">Fixed top</a>
+      </div>
+    </nav>
+</div>
+
+
+<div class="bd-example">
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0);">Fixed bottom</a>
+      </div>
+    </nav>
+</div>
+
+<div class="bd-example">
+    <nav class="navbar sticky-top navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0);">Sticky top</a>
+      </div>
+    </nav>
+</div>
+滾動
+<div class="bd-example">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid ai:center">
+        <a class="navbar-brand" href="javascript:void(0);">Navbar scroll</a>
+        <button onclick="click02(this,'navbarScroll')" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="javascript:void(0);">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0);">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Link
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Link</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+</div>
+
+切換元素
+<div class="bd-example">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button onclick="click02(this,'navbarTogglerDemo01')" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="#">Hidden brand</a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+</div>
+右邊是切換元素:
+<div class="bd-example">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button onclick="click02(this,'navbarTogglerDemo02')" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse show" id="navbarTogglerDemo02" style="">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+</div>
+
+<div class="bd-example">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button onclick="click02(this,'navbarTogglerDemo03')" class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Navbar</a>
+    <div class="navbar-collapse collapse" id="navbarTogglerDemo03" style="">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>
+ 外部內容
+<div class="bd-example">
+    <div class="collapse" id="navbarToggleExternalContent" style="">
+      <div class="bg-dark p-4">
+        <h5 class="text-white h4">Collapsed content</h5>
+        <span class="text-muted">Toggleable via the navbar brand.</span>
+      </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <button onclick="click02(this,'navbarToggleExternalContent')"  class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+</div>
+Offcanvas
+
+
+
+
+
+
+ <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

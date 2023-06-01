@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+.h2, h2 {
+    font-size: calc(1.325rem + .9vw);
+} 
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+b, strong {
+    font-weight: bolder;
+}
+code {
+    font-size: .875em;
+    color: #d63384;
+    word-wrap: break-word;
+}
+code, kbd, pre, samp {
+    font-family: var(--bs-font-monospace);
+    font-size: 1em;
+    direction: ltr;
+    unicode-bidi: bidi-override;
+}
+ 
+</style>
+    <script  >	
+		
+
+var oldid1="collapseOne";
+var oldid2="headingOne";
+var oldid3="flush-collapseOne";
+var oldid4="flush-headingOne";
+
+function test3(id){
+		
+		console.log(id);
+        if(id==oldid3){
+        
+            var elem = document.getElementById(id);
+            
+            if(elem.classList.contains('show')){
+                elem.classList.remove("show");
+                console.log('yes');
+            }else{
+               elem.classList.add("show");
+            
+            }
+            
+            
+            
+        }else{
+        
+            
+            var elem = document.getElementById(oldid3);
+            
+            elem.classList.remove("show");      
+            
+           
+            elem = document.getElementById(id);
+            elem.classList.add("show");        
+        
+        }
+        oldid3=id;
+
+}	
+ 
+
+function test4(id){
+
+
+    var parent1 = document.getElementById(id);
+    var firstChild1 = parent1.firstElementChild;
+    
+    
+    var firstChild = parent.firstElementChild;
+    
+    if(id==oldid4){
+    
+        if(firstChild.classList.contains("collapsed")){
+            firstChild.classList.remove("collapsed");
+        }else{
+            firstChild.classList.add("collapsed");
+        }
+    }else{
+    
+        console.log("123");
+        var parent = document.getElementById(oldid4);
+        var firstChild = parent.firstElementChild; 
+
+        firstChild.classList.remove("collapsed");        
+
+        var parent = document.getElementById(id);
+        var firstChild = parent.firstElementChild;        
+        if(firstChild.classList.contains("collapsed")){
+            firstChild.classList.remove("collapsed");
+        }else{
+            firstChild.classList.add("collapsed");
+        }    
+    
+    
+    }
+    oldid4=id;
+
+    
+}	
+
+function collapse1(id){
+
+    var parent1 = document.getElementById('headingOne');
+    var firstChild1 = parent1.firstElementChild;
+    var parent2 = document.getElementById('headingTwo');
+    var firstChild2 = parent2.firstElementChild;
+    var parent3 = document.getElementById('headingThree');
+    var firstChild3 = parent3.firstElementChild;
+    
+    var blem1 = document.getElementById('collapseOne');
+    var blem2 = document.getElementById('collapseTwo');
+    var blem3 = document.getElementById('collapseThree');
+    switch (id) {
+      case '1':
+      
+         if (firstChild1.getAttribute('aria-expanded')=="true"){
+            firstChild1.classList.add("collapsed");
+            blem1.classList.remove("show");   
+
+            firstChild1.setAttribute('aria-expanded', 'false');            
+         }else{
+            firstChild1.classList.remove("collapsed");
+            blem1.classList.add("show");
+
+            firstChild1.setAttribute('aria-expanded', 'true');                
+         }
+      
+
+         firstChild2.classList.add("collapsed");
+         blem2.classList.remove("show");
+         firstChild3.classList.add("collapsed");
+         blem3.classList.remove("show");  
+
+
+        //firstChild1.setAttribute('aria-expanded', 'false');    
+        firstChild2.setAttribute('aria-expanded', 'false');    
+        firstChild3.setAttribute('aria-expanded', 'false');    
+         
+        break;
+      case '2':
+         firstChild1.classList.add("collapsed");
+         blem1.classList.remove("show");
+         //firstChild2.classList.add("collapsed");
+         //blem2.classList.remove("show");
+         firstChild3.classList.add("collapsed");
+         blem3.classList.remove("show");         
+      
+         if (firstChild2.getAttribute('aria-expanded')=="true"){
+            firstChild2.classList.add("collapsed");
+            blem2.classList.remove("show");   
+
+            firstChild2.setAttribute('aria-expanded', 'false');            
+         }else{
+            firstChild2.classList.remove("collapsed");
+            blem2.classList.add("show");
+
+            firstChild2.setAttribute('aria-expanded', 'true');                
+         }      
+         
+        firstChild1.setAttribute('aria-expanded', 'false');    
+        //firstChild2.setAttribute('aria-expanded', 'false');    
+        firstChild3.setAttribute('aria-expanded', 'false');    
+         
+         
+         break;
+      case '3':
+         firstChild1.classList.add("collapsed");
+         blem1.classList.remove("show");
+         firstChild2.classList.add("collapsed");
+         blem2.classList.remove("show");
+         //firstChild3.classList.add("collapsed");
+         //blem3.classList.remove("show");         
+
+         if (firstChild3.getAttribute('aria-expanded')=="true"){
+            firstChild3.classList.add("collapsed");
+            blem3.classList.remove("show");   
+
+            firstChild3.setAttribute('aria-expanded', 'false');            
+         }else{
+            firstChild3.classList.remove("collapsed");
+            blem3.classList.add("show");
+
+            firstChild3.setAttribute('aria-expanded', 'true');                
+         } 
+
+        firstChild1.setAttribute('aria-expanded', 'false');    
+        firstChild2.setAttribute('aria-expanded', 'false');    
+        //firstChild3.setAttribute('aria-expanded', 'false');    
+
+         
+        break;
+      default:
+
+    }
+}
+
+function collapse2(id){
+
+    var parent1 = document.getElementById('flush-headingOne');
+    var firstChild1 = parent1.firstElementChild;
+    var parent2 = document.getElementById('flush-headingTwo');
+    var firstChild2 = parent2.firstElementChild;
+    var parent3 = document.getElementById('flush-headingThree');
+    var firstChild3 = parent3.firstElementChild;
+    
+    var blem1 = document.getElementById('flush-collapseOne');
+    var blem2 = document.getElementById('flush-collapseTwo');
+    var blem3 = document.getElementById('flush-collapseThree');
+    switch (id) {
+      case '1':
+      
+         if (firstChild1.getAttribute('aria-expanded')=="true"){
+            firstChild1.classList.add("collapsed");
+            blem1.classList.remove("show");   
+
+            firstChild1.setAttribute('aria-expanded', 'false');            
+         }else{
+            firstChild1.classList.remove("collapsed");
+            blem1.classList.add("show");
+
+            firstChild1.setAttribute('aria-expanded', 'true');                
+         }
+      
+
+         firstChild2.classList.add("collapsed");
+         blem2.classList.remove("show");
+         firstChild3.classList.add("collapsed");
+         blem3.classList.remove("show");  
+
+
+        //firstChild1.setAttribute('aria-expanded', 'false');    
+        firstChild2.setAttribute('aria-expanded', 'false');    
+        firstChild3.setAttribute('aria-expanded', 'false');    
+         
+        break;
+      case '2':
+         firstChild1.classList.add("collapsed");
+         blem1.classList.remove("show");
+         //firstChild2.classList.add("collapsed");
+         //blem2.classList.remove("show");
+         firstChild3.classList.add("collapsed");
+         blem3.classList.remove("show");         
+      
+         if (firstChild2.getAttribute('aria-expanded')=="true"){
+            firstChild2.classList.add("collapsed");
+            blem2.classList.remove("show");   
+
+            firstChild2.setAttribute('aria-expanded', 'false');            
+         }else{
+            firstChild2.classList.remove("collapsed");
+            blem2.classList.add("show");
+
+            firstChild2.setAttribute('aria-expanded', 'true');                
+         }      
+         
+        firstChild1.setAttribute('aria-expanded', 'false');    
+        //firstChild2.setAttribute('aria-expanded', 'false');    
+        firstChild3.setAttribute('aria-expanded', 'false');    
+         
+         
+         break;
+      case '3':
+         firstChild1.classList.add("collapsed");
+         blem1.classList.remove("show");
+         firstChild2.classList.add("collapsed");
+         blem2.classList.remove("show");
+         //firstChild3.classList.add("collapsed");
+         //blem3.classList.remove("show");         
+
+         if (firstChild3.getAttribute('aria-expanded')=="true"){
+            firstChild3.classList.add("collapsed");
+            blem3.classList.remove("show");   
+
+            firstChild3.setAttribute('aria-expanded', 'false');            
+         }else{
+            firstChild3.classList.remove("collapsed");
+            blem3.classList.add("show");
+
+            firstChild3.setAttribute('aria-expanded', 'true');                
+         } 
+
+        firstChild1.setAttribute('aria-expanded', 'false');    
+        firstChild2.setAttribute('aria-expanded', 'false');    
+        //firstChild3.setAttribute('aria-expanded', 'false');    
+
+         
+        break;
+      default:
+
+    }
+}
+
+function collapse3(id){
+
+    var parent1 = document.getElementById('panelsStayOpen-headingOne');
+    var firstChild1 = parent1.firstElementChild;
+    var parent2 = document.getElementById('panelsStayOpen-headingTwo');
+    var firstChild2 = parent2.firstElementChild;
+    var parent3 = document.getElementById('panelsStayOpen-headingThree');
+    var firstChild3 = parent3.firstElementChild;
+    
+    var blem1 = document.getElementById('panelsStayOpen-collapseOne');
+    var blem2 = document.getElementById('panelsStayOpen-collapseTwo');
+    var blem3 = document.getElementById('panelsStayOpen-collapseThree');
+    switch (id) {
+      case '1':
+      
+         if (firstChild1.getAttribute('aria-expanded')=="true"){
+            firstChild1.classList.add("collapsed");
+            blem1.classList.remove("show");   
+
+            firstChild1.setAttribute('aria-expanded', 'false');            
+         }else{
+            firstChild1.classList.remove("collapsed");
+            blem1.classList.add("show");
+
+            firstChild1.setAttribute('aria-expanded', 'true');                
+         }
+      
+
+         //firstChild2.classList.add("collapsed");
+         //blem2.classList.remove("show");
+         //firstChild3.classList.add("collapsed");
+         //blem3.classList.remove("show");  
+
+
+        //firstChild1.setAttribute('aria-expanded', 'false');    
+        //firstChild2.setAttribute('aria-expanded', 'false');    
+        //firstChild3.setAttribute('aria-expanded', 'false');    
+         
+        break;
+      case '2':
+         //firstChild1.classList.add("collapsed");
+         //blem1.classList.remove("show");
+         //firstChild2.classList.add("collapsed");
+         //blem2.classList.remove("show");
+         //firstChild3.classList.add("collapsed");
+         //blem3.classList.remove("show");         
+      
+         if (firstChild2.getAttribute('aria-expanded')=="true"){
+            firstChild2.classList.add("collapsed");
+            blem2.classList.remove("show");   
+
+            firstChild2.setAttribute('aria-expanded', 'false');            
+         }else{
+            firstChild2.classList.remove("collapsed");
+            blem2.classList.add("show");
+
+            firstChild2.setAttribute('aria-expanded', 'true');                
+         }      
+         
+        //firstChild1.setAttribute('aria-expanded', 'false');    
+        //firstChild2.setAttribute('aria-expanded', 'false');    
+       // firstChild3.setAttribute('aria-expanded', 'false');    
+         
+         
+         break;
+      case '3':
+        // firstChild1.classList.add("collapsed");
+        // blem1.classList.remove("show");
+       //  firstChild2.classList.add("collapsed");
+       //  blem2.classList.remove("show");
+         //firstChild3.classList.add("collapsed");
+         //blem3.classList.remove("show");         
+
+         if (firstChild3.getAttribute('aria-expanded')=="true"){
+            firstChild3.classList.add("collapsed");
+            blem3.classList.remove("show");   
+
+            firstChild3.setAttribute('aria-expanded', 'false');            
+         }else{
+            firstChild3.classList.remove("collapsed");
+            blem3.classList.add("show");
+
+            firstChild3.setAttribute('aria-expanded', 'true');                
+         } 
+
+       // firstChild1.setAttribute('aria-expanded', 'false');    
+       // firstChild2.setAttribute('aria-expanded', 'false');    
+        //firstChild3.setAttribute('aria-expanded', 'false');    
+
+         
+        break;
+      default:
+
+    }
+}
+    </script>
+
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/components/accordion/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+css語法 蠻多要注意的,控制元件的展開閉合是由JS控制aria-expanded屬性值,這部分可以看我寫的範例<BR>
+
+
+ 範例
+<div class="bd-example">
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne" onclick="collapse1('1')">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Accordion Item #1
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo" onclick="collapse1('2')">
+          <button class="accordion-button collapsed"   type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Accordion Item #2
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree"   onclick="collapse1('3')">
+          <button class="accordion-button collapsed"   type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Accordion Item #3
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+Flush
+<div class="bd-example bg-light">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne"  onclick="collapse2('1')">
+          <button class="accordion-button"   type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+            Accordion Item #1
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample" style="">
+          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingTwo"   onclick="collapse2('2')">
+          <button class="accordion-button collapsed"   type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            Accordion Item #2
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree"   onclick="collapse2('3')">
+          <button class="accordion-button collapsed"    type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            Accordion Item #3
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+        </div>
+      </div>
+    </div>
+</div>
+
+總是開啟
+<div class="bd-example">
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingOne" onclick="collapse3('1')">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            Accordion Item #1
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+          <div class="accordion-body">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingTwo" onclick="collapse3('2')">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+            Accordion Item #2
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+          <div class="accordion-body">
+            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingThree" onclick="collapse3('3')">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+            Accordion Item #3
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+          <div class="accordion-body">
+            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

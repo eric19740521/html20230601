@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);    
+}
+
+@keyframes checkbox1 {
+    from {  top: 60%;  }
+    to {    top: 0%;   }
+}
+ 
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/forms/overview/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+ 表單控制 (Form controls)<BR>
+<div class="bd-example"> 
+    <form>
+      <div class="mb:16 ">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb:16">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+      </div>
+      <div class="mb:16 form-check pl:0!">
+        <input type="checkbox" class="form-checkbox" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+表單文字
+<div class="bd-example">
+    <label for="inputPassword5" class="form-label">Password</label>
+    <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+    <div id="passwordHelpBlock" class="form-text">
+      Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+    </div>
+</div>
+
+變數傳遞<BR>
+<div class="bd-example"> 
+    <div class="row ai:center g-3 "><!--var不要帶單位!!不然calc計算會錯誤-->
+      <div class="col-auto ">
+        <label for="inputPassword6" class="col-form-label">Password</label>
+      </div>
+      <div class="col-auto p:0|8">
+        <input type="password" id="inputPassword6" class="form-control" >
+      </div>
+      <div class="col-auto ">
+        <span id="passwordHelpInline" class="form-text">
+          Must be 8-20 characters long.
+        </span>
+      </div>
+    </div>
+</div>
+
+禁用表格
+<div class="bd-example">
+    <form>
+      <fieldset disabled="">
+        <legend>Disabled fieldset example</legend>
+        <div class="mb-3">
+          <label for="disabledTextInput" class="form-label">Disabled input</label>
+          <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+        </div>
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-label">Disabled select menu</label>
+          <select id="disabledSelect" class="form-select">
+            <option>Disabled select</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <div class="form-check pl:0!">
+            <input class="form-checkbox" type="checkbox" id="disabledFieldsetCheck" disabled="">
+            <label class="form-check-label" for="disabledFieldsetCheck">
+              Can't check this
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </fieldset>
+    </form>
+</div>
+
+
+ 
+
+
+	 <BR> <BR>
+</body>
+</html>

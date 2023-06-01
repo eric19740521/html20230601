@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);    
+}
+
+@keyframes checkbox1 {
+    from {  top: 60%;  }
+    to {    top: 0%;   }
+}
+ 
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/forms/range/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+
+範圍 (Range)<BR>
+<div class="bd-example"> 
+    <label for="customRange1" class="form-label">Example range</label>
+    <input type="range" class="form-range" id="customRange1">
+
+</div> 
+禁用<BR>
+<div class="bd-example"> 
+    <label for="disabledRange" class="form-label">Disabled range</label>
+    <input type="range" class="form-range" id="disabledRange" disabled>
+
+</div> 
+
+最小與最大
+<div class="bd-example">
+    <label for="customRange2" class="form-label">Example range</label>
+    <input type="range" class="form-range" min="0" max="5" id="customRange2">
+</div> 
+間距數值 (steps)
+<div class="bd-example">
+    <label for="customRange3" class="form-label">Example range</label>
+    <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+</div>
+
+
+	 <BR> <BR>
+</body>
+</html>

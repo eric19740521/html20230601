@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));  /*漸層*/
+    
+    --text-opacity: 1;                   /*文字透明度*/
+    --bg-opacity: 1;                     /*背景透明度*/
+    --primary: #0d6efd;                  
+    --secondary: #6c757d;
+    --success: #198754;
+    --info: #0dcaf0;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #212529;
+    /*--primary-rgb: 13,110,253;   */        /*顏色*/
+    --secondary-rgb: 108,117,125;
+    --success-rgb: 25,135,84;
+    --info-rgb: 13,202,240;
+    --warning-rgb: 255,193,7;
+    --danger-rgb: 220,53,69;
+    --light-rgb: 248,249,250;
+    --dark-rgb: 33,37,41;
+    --white-rgb: 255,255,255;
+    --black-rgb: 0,0,0;
+}
+ 
+ 
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.0/utilities/background/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+
+Background color
+ 
+<div class="bd-example">
+
+    <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
+    <div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+    <div class="p-3 mb-2 bg-success text-white">.bg-success</div>
+    <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+    <div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+    <div class="p-3 mb-2 bg-info text-dark">.bg-info</div>
+    <div class="p-3 mb-2 bg-light text-dark">.bg-light</div>
+    <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+    <div class="p-3 mb-2 bg-body text-dark">.bg-body</div>
+    <div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
+    <div class="p-3 mb-2 bg-transparent text-dark">.bg-transparent</div>
+</div>
+ Background gradient 背景顏色漸變
+<div class="bd-example">
+    <div class="p-3 mb-2 bg-primary bg-gradient text-white">.bg-primary.bg-gradient</div>
+    <div class="p-3 mb-2 bg-secondary bg-gradient text-white">.bg-secondary.bg-gradient</div>
+    <div class="p-3 mb-2 bg-success bg-gradient text-white">.bg-success.bg-gradient</div>
+    <div class="p-3 mb-2 bg-danger bg-gradient text-white">.bg-danger.bg-gradient</div>
+    <div class="p-3 mb-2 bg-warning bg-gradient text-dark">.bg-warning.bg-gradient</div>
+    <div class="p-3 mb-2 bg-info bg-gradient text-dark">.bg-info.bg-gradient</div>
+    <div class="p-3 mb-2 bg-light bg-gradient text-dark">.bg-light.bg-gradient</div>
+    <div class="p-3 mb-2 bg-dark bg-gradient text-white">.bg-dark.bg-gradient</div>
+
+
+
+</div> 
+
+Opacity
+<div class="bd-example">
+    <div class="bg-success p-2 text-white">This is default success background</div>
+    <div class="bg-success p-2" style="--bg-opacity: .5;">This is 50% opacity success background</div>
+</div>
+從 .bg-opacity 通用類別中選擇：
+<div class="bd-example">
+    <div class="bg-success p-2 text-white">This is default success background</div>
+    <div class="bg-success p-2 text-white bg-opacity-75">This is 75% opacity success background</div>
+    <div class="bg-success p-2 text-dark bg-opacity-50">This is 50% opacity success background</div>
+    <div class="bg-success p-2 text-dark bg-opacity-25">This is 25% opacity success background</div>
+    <div class="bg-success p-2 text-dark bg-opacity-10">This is 10% opacity success background</div>
+</div>
+
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+}
+ 
+code {
+    font-size: .875em;
+    color: #d63384;
+    word-wrap: break-word;
+}
+code, kbd, pre, samp {
+    font-family: var(--bs-font-monospace);
+    font-size: 1em;
+    direction: ltr;
+    unicode-bidi: bidi-override;
+} 
+ 
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/examples/grid/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+//2xs 480. xs 600 . sm 768. md 1024. lg 1280. xl 1440.<BR>
+Five grid tiers<BR>
+<div class="container"> 
+    <div class="row mb-3">
+      <div class="col-4 themed-grid-col">.col-4</div>
+      <div class="col-4 themed-grid-col">.col-4</div>
+      <div class="col-4 themed-grid-col">.col-4</div>
+    </div>
+   
+    <div class="row mb-3">
+          <div class="col-sm-4 themed-grid-col">.col-sm-4</div>
+          <div class="col-sm-4 themed-grid-col">.col-sm-4</div>
+          <div class="col-sm-4 themed-grid-col">.col-sm-4</div>
+    </div>
+    
+    <div class="row mb-3">
+          <div class="col-md-4 themed-grid-col">.col-md-4</div>
+          <div class="col-md-4 themed-grid-col">.col-md-4</div>
+          <div class="col-md-4 themed-grid-col">.col-md-4</div>
+    </div>    
+
+    <div class="row mb-3">
+          <div class="col-lg-4 themed-grid-col">.col-lg-4</div>
+          <div class="col-lg-4 themed-grid-col">.col-lg-4</div>
+          <div class="col-lg-4 themed-grid-col">.col-lg-4</div>
+    </div> 
+
+    <div class="row mb-3">
+          <div class="col-xl-4 themed-grid-col">.col-xl-4</div>
+          <div class="col-xl-4 themed-grid-col">.col-xl-4</div>
+          <div class="col-xl-4 themed-grid-col">.col-xl-4</div>
+    </div>
+ 
+    <div class="row mb-3">
+          <div class="col-xxl-4 themed-grid-col">.col-xxl-4</div>
+          <div class="col-xxl-4 themed-grid-col">.col-xxl-4</div>
+          <div class="col-xxl-4 themed-grid-col">.col-xxl-4</div>
+    </div>
+ 
+</div>
+Three equal columns
+<div class="container"> 
+    <div class="row mb-3">
+          <div class="col-md-4 themed-grid-col">.col-md-4</div>
+          <div class="col-md-4 themed-grid-col">.col-md-4</div>
+          <div class="col-md-4 themed-grid-col">.col-md-4</div>
+    </div>
+</div>
+Three equal columns alternative
+<div class="container"> 
+    <div class="row row-cols-md-3 mb-3">
+          <div class="col themed-grid-col"><code>.col</code> child of <code>.row-cols-md-3</code></div>
+          <div class="col themed-grid-col"><code>.col</code> child of <code>.row-cols-md-3</code></div>
+          <div class="col themed-grid-col"><code>.col</code> child of <code>.row-cols-md-3</code></div>
+    </div>
+</div>
+
+Three unequal columns
+<div class="container"> 
+    <div class="row mb-3">
+          <div class="col-md-3 themed-grid-col">.col-md-3</div>
+          <div class="col-md-6 themed-grid-col">.col-md-6</div>
+          <div class="col-md-3 themed-grid-col">.col-md-3</div>
+    </div>
+</div>
+Two columns
+<div class="container"> 
+    <div class="row mb-3">
+          <div class="col-md-8 themed-grid-col">.col-md-8</div>
+          <div class="col-md-4 themed-grid-col">.col-md-4</div>
+    </div>
+</div>
+ Two columns with two nested columns
+<div class="container"> 
+    <div class="row mb-3">
+          <div class="col-md-8 themed-grid-col">
+            <div class="pb-3">
+              .col-md-8
+            </div>
+            <div class="row">
+              <div class="col-md-6 themed-grid-col">.col-md-6</div>
+              <div class="col-md-6 themed-grid-col">.col-md-6</div>
+            </div>
+          </div>
+          <div class="col-md-4 themed-grid-col">.col-md-4</div>
+    </div>
+</div>
+Mixed: mobile and desktop
+<div class="container"> 
+    <div class="row mb-3">
+          <div class="col-md-8 themed-grid-col">.col-md-8</div>
+          <div class="col-6 col-md-4 themed-grid-col">.col-6 .col-md-4</div>
+    </div>
+</div>
+<div class="container"> 
+    <div class="row mb-3">
+          <div class="col-6 col-md-4 themed-grid-col">.col-6 .col-md-4</div>
+          <div class="col-6 col-md-4 themed-grid-col">.col-6 .col-md-4</div>
+          <div class="col-6 col-md-4 themed-grid-col">.col-6 .col-md-4</div>
+    </div>
+</div>
+<div class="container"> 
+    <div class="row mb-3">
+          <div class="col-6 themed-grid-col">.col-6</div>
+          <div class="col-6 themed-grid-col">.col-6</div>
+    </div>
+</div>
+Mixed: mobile, tablet, and desktop
+<div class="container"> 
+    <div class="row mb-3">
+          <div class="col-sm-6 col-lg-8 themed-grid-col">.col-sm-6 .col-lg-8</div>
+          <div class="col-6 col-lg-4 themed-grid-col">.col-6 .col-lg-4</div>
+    </div>
+</div>
+<div class="container"> 
+    <div class="row mb-3">
+          <div class="col-6 col-sm-4 themed-grid-col">.col-6 .col-sm-4</div>
+          <div class="col-6 col-sm-4 themed-grid-col">.col-6 .col-sm-4</div>
+          <div class="col-6 col-sm-4 themed-grid-col">.col-6 .col-sm-4</div>
+    </div>
+</div>
+Gutters<BR>
+gx-*
+<div class="container"> 
+    <div class="row row-cols-1 row-cols-md-3 gx-4">
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+    </div>
+</div>
+gy-*
+<div class="container mt-4"> 
+    <div class="row row-cols-1 row-cols-md-3 gy-4">
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gy-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gy-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gy-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gy-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gy-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gy-4</code> gutters</div>
+    </div>
+</div>
+g-*
+<div class="container mt-4"> 
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+          <div class="col themed-grid-col"><code>.col</code> with <code>.g-3</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.g-3</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.g-3</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.g-3</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.g-3</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.g-3</code> gutters</div>
+    </div>
+</div>
+Containers
+<div class="container themed-container">.container</div>
+<div class="container-sm themed-container">.container-sm</div>
+<div class="container-md themed-container">.container-md</div>
+<div class="container-lg themed-container">.container-lg</div>
+<div class="container-xl themed-container">.container-xl</div>
+<div class="container-xxl themed-container">.container-xxl</div>
+<div class="container-fluid themed-container">.container-fluid</div>
+
+
+
+//2xs 480. xs 600 . sm 768. md 1024. lg 1280. xl 1440.<BR>
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

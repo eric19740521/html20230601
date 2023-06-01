@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --bs-breadcrumb-divider:"/";
+    --bs-bg-opacity: 1;
+    --bs-dark-rgb:33,37,41;
+}
+
+
+.h4, h4 {
+    font-size: calc(1.275rem + .3vw);
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+</style>
+<script  >
+
+function click1 (element,element1) {
+
+    var elem = document.getElementById(element1);
+    
+    if(elem.classList.contains('show')){ 
+    
+        elem.classList.remove("show");
+    
+    }else{
+
+        elem.classList.add("show");
+        
+        var w = element.offsetWidth;    // 返回元素的总宽度
+        var h = element.offsetHeight;    // 返回元素的总高度
+        
+        
+        console.log("元素w*h:" + w + "px," + h + "px");
+        
+        var x=0;
+        var y=h+4;
+           
+       
+        var str1="translate(" + x + "px," + y + "px) ";
+        console.log(str1);
+
+        elem.style.setProperty('position', 'absolute');       //測試!!可以不需要
+        elem.style.setProperty('margin', '0px');              //測試!!可以不需要
+        elem.style.setProperty('inset', '0px auto auto 0px');  //這個對於位置很重要
+        //elem.style.setProperty('inset', '0px 0px 0px 0px');  //改成這樣.會產生什麼後果???
+        elem.style.setProperty('transform', str1);              //這個對於位置很重要  
+    }
+//position: absolute; inset: 0px auto auto 0px; margin: 0px;
+//  transform:translate(602px,1836px)    
+}
+
+//參考: https://andyyou.github.io/2015/04/07/get-an-element-s-position-by-js/
+function getPosition (element) {
+  var x = 0;
+  var y = 0;
+  // 搭配上面的示意圖可比較輕鬆理解為何要這麼計算
+  while ( element ) {
+    x += element.offsetLeft - element.scrollLeft + element.clientLeft;
+    y += element.offsetTop - element.scrollLeft + element.clientTop;
+    element = element.offsetParent;
+  }
+  console.log(x);
+  console.log(y);
+
+  return { x: x, y: y };
+}
+
+
+//不可砍
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+ 
+ 
+</script>
+
+</head>
+<body >
+
+
+
+滾動監控
+<div class="bd-example">
+  <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+    <a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" href="#scrollspyHeading1">First</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#scrollspyHeading2">Second</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);" role="button" aria-expanded="false">Dropdown</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+          <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+    <h4 id="scrollspyHeading1">First heading</h4>
+    <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+    <h4 id="scrollspyHeading2">Second heading</h4>
+    <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+    <h4 id="scrollspyHeading3">Third heading</h4>
+    <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+    <h4 id="scrollspyHeading4">Fourth heading</h4>
+    <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+    <h4 id="scrollspyHeading5">Fifth heading</h4>
+    <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+  </div>
+</div>
+巢狀 nav 範例
+<div class="bd-example">
+  <div class="row">
+    <div class="col-4">
+      <nav id="navbar-example3" class="navbar navbar-light bg-light flex-column align-items-stretch p-3">
+        <a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+        <nav class="nav nav-pills flex-column">
+          <a class="nav-link active" href="#item-1">Item 1</a>
+          <nav class="nav nav-pills flex-column">
+            <a class="nav-link ms-3 my-1" href="#item-1-1">Item 1-1</a>
+            <a class="nav-link ms-3 my-1" href="#item-1-2">Item 1-2</a>
+          </nav>
+          <a class="nav-link" href="#item-2">Item 2</a>
+          <a class="nav-link" href="#item-3">Item 3</a>
+          <nav class="nav nav-pills flex-column">
+            <a class="nav-link ms-3 my-1" href="#item-3-1">Item 3-1</a>
+            <a class="nav-link ms-3 my-1" href="#item-3-2">Item 3-2</a>
+          </nav>
+        </nav>
+      </nav>
+    </div>
+    <div class="col-8">
+      <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" class="scrollspy-example-2" tabindex="0">
+        <h4 id="item-1">Item 1</h4>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+        <h5 id="item-1-1">Item 1-1</h5>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+        <h5 id="item-1-2">Item 1-2</h5>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+        <h4 id="item-2">Item 2</h4>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+        <h4 id="item-3">Item 3</h4>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+        <h5 id="item-3-1">Item 3-1</h5>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+        <h5 id="item-3-2">Item 3-2</h5>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+      </div>
+    </div>
+  </div>
+</div>
+列表群組 (list-group) 範例
+<div class="bd-example">
+  <div class="row">
+    <div class="col-4">
+      <div id="list-example" class="list-group">
+        <a class="list-group-item list-group-item-action active" href="#list-item-1">Item 1</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+      </div>
+    </div>
+    <div class="col-8">
+      <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+        <h4 id="list-item-1">Item 1</h4>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+        <h4 id="list-item-2">Item 2</h4>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+        <h4 id="list-item-3">Item 3</h4>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+        <h4 id="list-item-4">Item 4</h4>
+        <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

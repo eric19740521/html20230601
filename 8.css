@@ -1,0 +1,6 @@
+import { Style } from '@master/css';
+ 
+Style.extend('classes', {
+    btn: 'px:18 h:40 font:14 font:medium r:4 inline-flex align-items:center',
+    container: 'max-w:1280 px:20 px:40@sm mx:auto'
+});

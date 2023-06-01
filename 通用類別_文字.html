@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --bg-bg-rgb:255,255,255;
+    --bg-opacity:1;
+    --text-opacity:1;
+    
+    --font-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+} 
+ a {
+    color: #0d6efd;
+    text-decoration: underline;
+}
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/utilities/text/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+文字對齊
+<div class="bd-example">
+    <p class="text-start">Start aligned text on all viewport sizes.</p>
+    <p class="text-center">Center aligned text on all viewport sizes.</p>
+    <p class="text-end">End aligned text on all viewport sizes.</p>
+
+    <p class="text-sm-start">Start aligned text on viewports sized SM (small) or wider.</p>
+    <p class="text-md-start">Start aligned text on viewports sized MD (medium) or wider.</p>
+    <p class="text-lg-start">Start aligned text on viewports sized LG (large) or wider.</p>
+    <p class="text-xl-start">Start aligned text on viewports sized XL (extra-large) or wider.</p>
+</div>
+Text wrap 和 overflow
+<div class="bd-example">
+    <div class="badge bg-primary  text-wrap" style="width: 6rem;">
+      This text should wrap.
+    </div>
+</div>
+.text-nowrap
+<div class="bd-example">
+    <div class="text-nowrap bd-highlight" style="width: 8rem;">
+      This text should overflow the parent.
+    </div>
+</div> 
+文字斷行
+<div class="bd-example">
+    <p class="text-break">mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</p>
+</div>
+ 文字變換
+<div class="bd-example">
+    <p class="text-lowercase">Lowercased text.</p>
+    <p class="text-uppercase">Uppercased text.</p>
+    <p class="text-capitalize">CapiTaliZed text.</p>
+</div>
+ 文字大小
+<div class="bd-example">
+    <p class="fs-1">.fs-1 text</p>
+    <p class="fs-2">.fs-2 text</p>
+    <p class="fs-3">.fs-3 text</p>
+    <p class="fs-4">.fs-4 text</p>
+    <p class="fs-5">.fs-5 text</p>
+    <p class="fs-6">.fs-6 text</p>
+</div> 
+ 文字粗細和斜體
+<div class="bd-example">
+    <p class="fw-bold">Bold text.</p>
+    <p class="fw-bolder">Bolder weight text (relative to the parent element).</p>
+    <p class="fw-normal">Normal weight text.</p>
+    <p class="fw-light">Light weight text.</p>
+    <p class="fw-lighter">Lighter weight text (relative to the parent element).</p>
+    <p class="fst-italic">Italic text.</p>
+    <p class="fst-normal">Text with normal font style</p>
+</div> 
+行高 
+<div class="bd-example">
+    <p class="lh-1">This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.</p>
+    <p class="lh-sm">This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.</p>
+    <p class="lh-base">This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.</p>
+    <p class="lh-lg">This is a long paragraph written to show how the line-height of an element is affected by our utilities. Classes are applied to the element itself or sometimes the parent element. These classes can be customized as needed with our utility API.</p>
+</div> 
+Monospace (沒有試出來!!!)
+<div class="bd-example">
+    <p class="font-monospace">This is in monospace</p>
+</div>
+重置色彩
+<div class="bd-example">
+    <p class="text-muted">
+      Muted text with a <a href="#" class="text-reset">reset link</a>.
+    </p>
+</div>
+文字裝飾
+<div class="bd-example">
+    <p class="text-decoration-underline">This text has a line underneath it.</p>
+    <p class="text-decoration-line-through">This text has a line going through it.</p>
+    <a href="#" class="text-decoration-none">This link has its text decoration removed</a>
+</div>
+ 
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --breadcrumb-divider:"/";
+}
+ 
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+ol, ul {
+    padding-left: 2rem;
+} 
+ 
+</style>
+    <script  >	
+
+function btn(){
+ 
+    var blem1 = document.getElementById('ul');
+ 
+    if(blem1.classList.contains('show')){
+        blem1.classList.remove("show"); 
+    }else{
+        blem1.classList.add("show"); 
+    }
+    
+}
+function btn1(){
+ 
+    var blem1 = document.getElementById('ul1');
+ 
+    if(blem1.classList.contains('show')){
+        blem1.classList.remove("show"); 
+    }else{
+        blem1.classList.add("show"); 
+    }
+    
+}
+function btn2(){
+ 
+    var blem1 = document.getElementById('ul2');
+ 
+    if(blem1.classList.contains('show')){
+        blem1.classList.remove("show"); 
+    }else{
+        blem1.classList.add("show"); 
+    }
+    
+}
+
+function btn3(){
+ 
+    var blem1 = document.getElementById('ul3');
+ 
+    if(blem1.classList.contains('show')){
+        blem1.classList.remove("show"); 
+    }else{
+        blem1.classList.add("show"); 
+    }
+    
+}
+function btn4(){
+ 
+    var blem1 = document.getElementById('ul4');
+ 
+    if(blem1.classList.contains('show')){
+        blem1.classList.remove("show"); 
+    }else{
+        blem1.classList.add("show"); 
+    }
+    
+}
+    </script>
+
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/components/button-group/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+ 
+
+ 範例
+<div class="bd-example">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary">Left</button>
+      <button type="button" class="btn btn-primary">Middle</button>
+      <button type="button" class="btn btn-primary">Right</button>
+    </div>
+</div>
+
+<div class="bd-example">
+    <div class="btn-group">
+      <a href="#" class="btn btn-primary active" aria-current="page">Active link</a>
+      <a href="#" class="btn btn-primary">Link</a>
+      <a href="#" class="btn btn-primary">Link</a>
+    </div>
+</div>
+混和樣式
+<div class="bd-example">
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+      <button type="button" class="btn btn-danger">Left</button>
+      <button type="button" class="btn btn-warning">Middle</button>
+      <button type="button" class="btn btn-success">Right</button>
+    </div>
+</div>
+Outline 樣式
+<div class="bd-example">
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+      <button type="button" class="btn btn-outline-primary">Left</button>
+      <button type="button" class="btn btn-outline-primary">Middle</button>
+      <button type="button" class="btn btn-outline-primary">Right</button>
+    </div>
+</div>
+核取方塊和選項按鈕群組(暫時不實現)
+<div class="bd-example">
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+      <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btncheck1">Checkbox 1</label>
+
+      <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btncheck2">Checkbox 2</label>
+
+      <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btncheck3">Checkbox 3</label>
+    </div>
+</div>
+
+(暫時不實現)
+<div class="bd-example">
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="">
+      <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
+
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
+
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
+    </div>
+</div>
+按鈕工具列
+<div class="bd-example">
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group me-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-primary">1</button>
+        <button type="button" class="btn btn-primary">2</button>
+        <button type="button" class="btn btn-primary">3</button>
+        <button type="button" class="btn btn-primary">4</button>
+      </div>
+      <div class="btn-group me-2" role="group" aria-label="Second group">
+        <button type="button" class="btn btn-secondary">5</button>
+        <button type="button" class="btn btn-secondary">6</button>
+        <button type="button" class="btn btn-secondary">7</button>
+      </div>
+      <div class="btn-group" role="group" aria-label="Third group">
+        <button type="button" class="btn btn-info">8</button>
+      </div>
+    </div>
+</div>
+
+按鈕群組進行混合
+<div class="bd-example">
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group me-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-outline-secondary">1</button>
+        <button type="button" class="btn btn-outline-secondary">2</button>
+        <button type="button" class="btn btn-outline-secondary">3</button>
+        <button type="button" class="btn btn-outline-secondary">4</button>
+      </div>
+      <div class="input-group">
+        <div class="input-group-text" id="btnGroupAddon">@</div>
+        <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon">
+      </div>
+    </div>
+
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group" role="group" aria-label="First group">
+        <button type="button" class="btn btn-outline-secondary">1</button>
+        <button type="button" class="btn btn-outline-secondary">2</button>
+        <button type="button" class="btn btn-outline-secondary">3</button>
+        <button type="button" class="btn btn-outline-secondary">4</button>
+      </div>
+      <div class="input-group">
+        <div class="input-group-text" id="btnGroupAddon2">@</div>
+        <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon2">
+      </div>
+    </div>
+</div>
+縮放
+<div class="bd-example">
+  <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+    <button type="button" class="btn btn-outline-dark">Left</button>
+    <button type="button" class="btn btn-outline-dark">Middle</button>
+    <button type="button" class="btn btn-outline-dark">Right</button>
+  </div>
+  <br>
+  <div class="btn-group" role="group" aria-label="Default button group">
+    <button type="button" class="btn btn-outline-dark">Left</button>
+    <button type="button" class="btn btn-outline-dark">Middle</button>
+    <button type="button" class="btn btn-outline-dark">Right</button>
+  </div>
+  <br>
+  <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+    <button type="button" class="btn btn-outline-dark">Left</button>
+    <button type="button" class="btn btn-outline-dark">Middle</button>
+    <button type="button" class="btn btn-outline-dark">Right</button>
+  </div>
+</div>
+巢狀
+<div class="bd-example">
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+      <button type="button" class="btn btn-primary">1</button>
+      <button type="button" class="btn btn-primary">2</button>
+
+      <div class="btn-group" role="group">
+        <button onclick="btn()" id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown
+        </button>
+        <ul id="ul" class="dropdown-menu " aria-labelledby="btnGroupDrop1">
+          <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+          <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+        </ul>
+      </div>
+    </div>
+</div>
+垂直變化
+<div class="bd-example">
+  <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+    <button type="button" class="btn btn-dark">Button</button>
+    <button type="button" class="btn btn-dark">Button</button>
+    <button type="button" class="btn btn-dark">Button</button>
+    <button type="button" class="btn btn-dark">Button</button>
+    <button type="button" class="btn btn-dark">Button</button>
+    <button type="button" class="btn btn-dark">Button</button>
+  </div>
+</div>
+<div class="bd-example">
+  <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+    <button type="button" class="btn btn-primary">Button</button>
+    <button type="button" class="btn btn-primary">Button</button>
+    <div class="btn-group" role="group">
+      <button onclick="btn1()" id="btnGroupVerticalDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown
+      </button>
+      <ul id="ul1" class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop1">
+        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+      </ul>
+    </div>
+    <button type="button" class="btn btn-primary">Button</button>
+    <button type="button" class="btn btn-primary">Button</button>
+    <div class="btn-group" role="group">
+      <button onclick="btn2()" id="btnGroupVerticalDrop2" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown
+      </button>
+      <ul id="ul2" class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop2">
+        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+      </ul>
+    </div>
+    <div class="btn-group" role="group">
+      <button onclick="btn3()" id="btnGroupVerticalDrop3" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown
+      </button>
+      <ul id="ul3" class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop3">
+        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+      </ul>
+    </div>
+    <div class="btn-group" role="group">
+      <button onclick="btn4()" id="btnGroupVerticalDrop4" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown
+      </button>
+      <ul id="ul4" class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop4">
+        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="bd-example">
+  <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked="">
+    <label class="btn btn-outline-danger" for="vbtn-radio1">Radio 1</label>
+    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+    <label class="btn btn-outline-danger" for="vbtn-radio2">Radio 2</label>
+    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
+    <label class="btn btn-outline-danger" for="vbtn-radio3">Radio 3</label>
+  </div>
+</div>
+
+
+
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

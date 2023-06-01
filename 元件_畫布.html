@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --breadcrumb-divider:"/";
+    --bg-opacity: 1;
+    --dark-rgb:33,37,41;
+}
+
+
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: currentColor;
+    border: 0;
+    opacity: .25;
+} 
+</style>
+<script  >
+function click1 (element,element1) {
+
+    var elem = document.getElementById(element1);
+    
+    if(elem.classList.contains('show')){ 
+    
+        elem.classList.remove("show");
+    
+    }else{
+
+        elem.classList.add("show");
+        
+        var w = element.offsetWidth;    // 返回元素的总宽度
+        var h = element.offsetHeight;    // 返回元素的总高度
+        
+        
+        console.log("元素w*h:" + w + "px," + h + "px");
+        
+        var x=0;
+        var y=h+4;
+           
+       
+        var str1="translate(" + x + "px," + y + "px) ";
+        console.log(str1);
+
+        elem.style.setProperty('position', 'absolute');       //測試!!可以不需要
+        elem.style.setProperty('margin', '0px');              //測試!!可以不需要
+        elem.style.setProperty('inset', '0px auto auto 0px');  //這個對於位置很重要
+        //elem.style.setProperty('inset', '0px 0px 0px 0px');  //改成這樣.會產生什麼後果???
+        elem.style.setProperty('transform', str1);              //這個對於位置很重要  
+    }
+//position: absolute; inset: 0px auto auto 0px; margin: 0px;
+//  transform:translate(602px,1836px)    
+}
+
+
+function xclick1 (element1) {
+
+    var elem = document.getElementById(element1);
+    
+    var elem1 = document.getElementById(element1+"-1");
+ 
+    if(elem.classList.contains('show')){ 
+    
+        elem.classList.remove("show");
+        elem.style.setProperty('visibility', 'hidden'); 
+        
+        elem1.classList.remove("offcanvas-backdrop");
+        elem1.classList.remove("fade");
+        elem1.classList.remove("show");        
+    
+    }else{
+
+        elem.classList.add("show");
+        elem.style.setProperty('visibility', 'visible');   
+
+
+        elem1.classList.add("offcanvas-backdrop");
+        elem1.classList.add("fade");
+        elem1.classList.add("show");
+        
+        //visibility: hidden; visibility: visible;
+    }
+    //<div class="offcanvas-backdrop fade show"></div>
+ 
+}
+
+function xclose1 (element1) {
+
+    var elem = document.getElementById(element1);
+    var elem1 = document.getElementById(element1+"-1");
+    
+    if(elem.classList.contains('show')){ 
+    
+        elem.classList.remove("show");
+        elem.style.setProperty('visibility', 'hidden'); 
+
+        elem1.classList.remove("offcanvas-backdrop");
+        elem1.classList.remove("fade");
+        elem1.classList.remove("show");     
+    }else{
+
+        elem.classList.add("show");
+        elem.style.setProperty('visibility', 'visible');       
+
+        elem1.classList.add("offcanvas-backdrop");
+        elem1.classList.add("fade");
+        elem1.classList.add("show");
+
+    }
+//position: absolute; inset: 0px auto auto 0px; margin: 0px;
+//  transform:translate(602px,1836px)    
+}
+//參考: https://andyyou.github.io/2015/04/07/get-an-element-s-position-by-js/
+function getPosition (element) {
+  var x = 0;
+  var y = 0;
+  // 搭配上面的示意圖可比較輕鬆理解為何要這麼計算
+  while ( element ) {
+    x += element.offsetLeft - element.scrollLeft + element.clientLeft;
+    y += element.offsetTop - element.scrollLeft + element.clientTop;
+    element = element.offsetParent;
+  }
+  console.log(x);
+  console.log(y);
+
+  return { x: x, y: y };
+}
+
+
+//不可砍
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+ 
+ 
+</script>
+
+</head>
+<body >
+
+
+
+Offcanvas 元件
+<div class="bd-example bd-example-offcanvas p-0 bg-light overflow-hidden">
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
+      </div>
+    </div>
+</div>
+動態範例<BR>
+style 那邊加入visibility: visible;<BR>
+背景灰色 用class=offcanvas-backdrop fade show
+
+<div class="bd-example">
+    <a onclick="xclick1('offcanvasExample')"   class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+      Link with href
+    </a>
+    <button onclick="xclick1('offcanvasExample')" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      Button with data-bs-target
+    </button>
+
+    <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"  aria-modal="true" role="dialog">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+        <button onclick="xclose1('offcanvasExample')" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="">
+          Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+        </div>
+        <div class="dropdown mt-3">
+          <button onclick="click1(this,'ul01')"  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+            Dropdown button
+          </button>
+          <ul id="ul01" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="offcanvasExample-1" ></div> 
+</div>
+位置
+<div class="bd-example">
+    <button onclick="xclick1('offcanvasTop')"   class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas</button>
+
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" style="visibility: hidden;" aria-hidden="true">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasTopLabel">Offcanvas top</h5>
+        <button onclick="xclose1('offcanvasTop')"  type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        ...
+      </div>
+    </div>
+    <div id="offcanvasTop-1" ></div> 
+</div>
+
+<div class="bd-example">
+    <button onclick="xclick1('offcanvasRight')" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+        <button onclick="xclose1('offcanvasRight')" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        ...
+      </div>
+    </div>
+    <div id="offcanvasRight-1" ></div> 
+</div>
+
+<div class="bd-example">
+    <button onclick="xclick1('offcanvasBottom')" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Toggle bottom offcanvas</button>
+
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+        <button onclick="xclose1('offcanvasBottom')" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body small">
+        ...
+      </div>
+    </div>
+    <div id="offcanvasBottom-1" ></div> 
+</div>
+背景
+<div class="bd-example">
+    <button onclick="xclick1('offcanvasScrolling')" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button>
+    <button onclick="xclick1('offcanvasWithBackdrop')" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Enable backdrop (default)</button>
+    <button onclick="xclick1('offcanvasWithBothOptions')" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling &amp; backdrop</button>
+
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" style="visibility: hidden;" aria-hidden="true">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Colored with scrolling</h5>
+        <button onclick="xclose1('offcanvasScrolling')" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>Try scrolling the rest of the page to see this option in action.</p>
+      </div>
+    </div>
+    <div id="offcanvasScrolling-1" ></div> 
+    
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">Offcanvas with backdrop</h5>
+        <button onclick="xclose1('offcanvasWithBackdrop')" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>.....</p>
+      </div>
+    </div>
+    <div id="offcanvasWithBackdrop-1" ></div> 
+    
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+        <button onclick="xclose1('offcanvasWithBothOptions')" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>Try scrolling the rest of the page to see this option in action.</p>
+      </div>
+    </div>
+    <div id="offcanvasWithBothOptions-1" ></div> 
+    
+</div>
+
+
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

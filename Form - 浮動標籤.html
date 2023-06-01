@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/forms/floating-labels/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+浮動標籤<BR>
+https://codepen.io/devesh8/pen/MWYEJEP <BR> 
+
+placeholder-shown/placeholder發覺很難解釋??我只是把功能做出來.有點難懂耶!不過還是搞出來了<BR>
+也許我的方法跟別人不同,你可以自己修改
+
+https://tw511.com/a/01/24910.html<BR>
+https://segmentfault.com/a/1190000039928413<BR>
+{color:transparent;}:placeholder-shown::placeholder 這個是把提示隱藏
+{content:'';abs;top:-6;left:10;f:8;bg:white;color:primary;z-index:1;}:focus+label 焦點位於input,提示 就會往上移動
+{content:'';abs;top:-6;left:10;f:8;bg:white;color:primary;z-index:1;}:not(:placeholder-shown)+label  input有內容 ,提示 就會往上移動
+
+<div class="bd-example"> 
+    <div class="rel mb:16">
+        <input type="text" id="floating_filled" class="block h:58 px:2.5 pb:2.5 pt:5 w:full color:primary bg:white b:0 bb:1 b:primary appearance-none  {outline:none;r:4;b:1|solid|primary;}:focus {content:'';abs;top:-6;left:10;f:8;bg:white;color:primary;z-index:1;}:focus+label {content:'';abs;top:-6;left:10;f:8;bg:white;color:primary;z-index:1;}:not(:placeholder-shown)+label {color:transparent;}:placeholder-shown::placeholder" placeholder="提示" />
+        <label for="floating_filled" class="abs top:4 left:10 color:gray pointer-events:none transition:0.2s|ease|all ">Floating filled</label>
+    </div>    
+    <div class="rel mb:16">
+        <input type="text" id="floating_filled" class="block h:58 px:2.5 pb:2.5 pt:5 w:full color:primary b:1|solid|primary r:4 appearance-none  {outline:none;r:4;b:1|solid|primary;}:focus {content:'';abs;top:-6;left:10;f:8;bg:white;color:primary;z-index:1;}:focus+label {color:transparent;}:placeholder-shown::placeholder {content:'';abs;top:-6;left:10;f:8;bg:white;color:primary;z-index:1;}:not(:placeholder-shown)+label" placeholder=" " />
+        <label for="floating_filled" class="abs top:4 left:10 color:gray pointer-events:none transition:0.2s|ease|all ">Floating filled</label>
+    </div> 
+</div> 
+https://bootstrap5.hexschool.com/docs/5.1/forms/floating-labels/<BR>
+浮動標籤<BR> 
+
+ 
+
+placeholder-shown/placeholder發覺很難解釋??我只是把功能做出來.有點難用描述
+
+https://tw511.com/a/01/24910.html<BR>
+https://segmentfault.com/a/1190000039928413<BR>
+<div class="bd-example"> 
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="floatingInput"  placeholder="Email address">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div> 
+</div> 
+
+如果已經定義 value ，則 <label> 會自動調整為其浮動位置。
+<div class="bd-example"> 
+    <form class="form-floating">
+      <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="test@example.com">
+      <label for="floatingInputValue">Input with value</label>
+    </form>
+</div> 
+表單驗證樣式也可以按預期運作。
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e);
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+<div class="bd-example"> 
+    <form class="form-floating">
+      <input type="email" class="form-control is-invalid " id="floatingInputInvalid" placeholder="name@example.com" value="test@example.com">
+      <label for="floatingInputInvalid">Invalid input</label>
+    </form>
+</div> 
+文字欄位,使用 height 屬性 (透過行內設定，或是自定義的 CSS)。
+<div class="bd-example"> 
+    <div class="form-floating">
+      <textarea class="form-control h:100!" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+      <label for="floatingTextarea">Comments</label>
+    </div>
+</div> 
+選擇
+<div class="bd-example"> 
+    <div class="form-floating">
+      <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+      <label for="floatingSelect">Works with selects</label>
+    </div>
+</div> 
+排版<BR>
+g-2可用{$g-x:8!;$g-y:8!}
+<div class="bd-example"> 
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="mdo@example.com">
+          <label for="floatingInputGrid">Email address</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <label for="floatingSelectGrid">Works with selects</label>
+        </div>
+      </div>
+    </div>
+</div> 
+
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

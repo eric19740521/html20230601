@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);    
+}
+
+@keyframes checkbox1 {
+    from {  top: 60%;  }
+    to {    top: 0%;   }
+}
+ 
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/forms/input-group/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+
+ 
+ 
+
+.input-group-text {
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+ 
+<div class="bd-example"> 
+     <div class="input-group mb:16">
+      <span class="input-group-text  rr:0! " id="basic-addon1">@</span>
+      <input type="text" class="form-control rl:0!" placeholder="Username">
+    </div>
+
+    <div class="input-group mb:16">
+      <input type="text" class="form-control  rr:0! " placeholder="Recipient's username">
+      <span class="input-group-text rl:0! z-index:-1 " id="basic-addon2">@example.com</span>
+    </div>
+
+    <label for="basic-url" class="form-label">Your vanity URL</label>
+    <div class="input-group mb:16">
+      <span class="input-group-text rr:0! " id="basic-addon3">https://example.com/users/</span>
+      <input type="text" class="form-control  rl:0! " id="basic-url">
+    </div>
+
+    <div class="input-group mb:16">
+      <span class="input-group-text rr:0! ">$</span>
+      <input type="text" class="form-control  rl:0! rr:0! ">
+      <span class="input-group-text rl:0!  z-index:-1 ">.00</span>
+    </div>
+
+    <div class="input-group mb:16">
+      <input type="text" class="form-control rr:0! " placeholder="Username">
+      <span class="input-group-text rr:0! rl:0!  z-index:-1 ">@</span>
+      <input type="text" class="form-control  rl:0! " placeholder="Server">
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-text rr:0! ">With textarea</span>
+      <textarea class="form-control  rl:0! "></textarea>
+    </div>
+
+
+</div> 
+
+尺寸<BR>
+<div class="bd-example">
+    <div class="input-group input-group-sm mb:16">
+      <span class="input-group-text rr:0! " id="inputGroup-sizing-sm">Small</span>
+      <input type="text" class="form-control   rl:0! " >
+    </div>
+
+    <div class="input-group mb:16">
+      <span class="input-group-text rr:0! " id="inputGroup-sizing-default">Default</span>
+      <input type="text" class="form-control   rl:0! " >
+    </div>
+
+    <div class="input-group input-group-lg ">
+      <span class="input-group-text rr:0! " id="inputGroup-sizing-lg">Large</span>
+      <input type="text" class="form-control   rl:0! " >
+    </div>
+
+
+</div> 
+核取方塊和選項按鈕<BR>
+<div class="bd-example"> 
+    <div class="input-group mb:16">
+      <div class="input-group-text rr:0! ">
+        <input class="form-checkbox mt:0! top:-12!:before {top:-8!;}:checked:after" type="checkbox" value="" >
+      </div>
+      <input type="text" class="form-control  rl:0!" >
+    </div>
+
+    <div class="input-group">
+      <div class="input-group-text rr:0! ">
+        <input class="form-radio mt:0! top:0!:before {top:4!;}:checked:after" type="radio" value="" >
+      </div>
+      <input type="text" class="form-control  rl:0!" >
+    </div>
+
+</div> 
+
+
+多個 input
+<div class="bd-example"> 
+    <div class="input-group">
+      <span class="input-group-text rr:0!">First and last name</span>
+      <input type="text" class="form-control  r:0!">
+      <input type="text" class="form-control  rl:0!">
+    </div>
+
+</div> 
+
+多附加組件
+<div class="bd-example"> 
+    <div class="input-group mb:16">
+      <span class="input-group-text rr:0!">$</span>
+      <span class="input-group-text r:0!">0.00</span>
+      <input type="text" class="form-control    rl:0!" >
+    </div>
+
+    <div class="input-group">
+      <input type="text" class="form-control    rr:0!" >
+      <span class="input-group-text r:0! z-index:-1 ">$</span>
+      <span class="input-group-text rl:0!">0.00</span>
+    </div>
+
+</div> 
+
+
+按鈕附加元件<BR>
+input&button組合,因為outline會造成畫面不協調,所以把outline拿掉,這樣畫面就漂亮了
+<div class="bd-example"> 
+    <div class="input-group mb:16">
+      <button class="btn btn-outline-secondary  rr:0!" type="button" id="button-addon1">Button</button>
+      <input type="text" class="form-control b:1|solid|#ced4da! {b:1|solid|primary-focus!;outline:none!;}:focus  rl:0!" placeholder="" >
+    </div>
+
+    <div class="input-group mb:16">
+      <input type="text" class="form-control     b:1|solid|#ced4da! {b:1|solid|primary-focus!;outline:none!;}:focus " placeholder="Recipient's username" >
+      <button class="btn btn-outline-secondary rl:0! {outline:none!;}:focus" type="button" id="button-addon2">Button</button>
+    </div>
+
+    <div class="input-group mb:16">
+      <button class="btn btn-outline-secondary rr:0 {outline:none!;}:focus" type="button">Button</button>
+      <button class="btn btn-outline-secondary r:0! {outline:none!;}:focus" type="button">Button</button>
+      <input type="text" class="form-control    rl:0!  b:1|solid|#ced4da! {b:1|solid|primary-focus!;outline:none!;}:focus " placeholder="" >
+    </div>
+
+    <div class="input-group">
+      <input type="text" class="form-control     b:1|solid|#ced4da! {b:1|solid|primary-focus!;outline:none!;}:focus  " placeholder="Recipient's username">
+      <button class="btn btn-outline-secondary r:0! rel z-index:2! {outline:none!;}:focus" type="button">Button</button>
+      <button class="btn btn-outline-secondary rl:0! rel z-index:2! {outline:none!;}:focus" type="button">Button</button>
+    </div>
+
+</div> 
+
+
+
+
+	 <BR> <BR>
+</body>
+</html>

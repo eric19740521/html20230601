@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+ 
+ 
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/utilities/sizing/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+相對於父元素
+<div class="bd-example">
+    <div class="w-25 p-3" style="background-color: #eee;">Width 25%</div>
+    <div class="w-50 p-3" style="background-color: #eee;">Width 50%</div>
+    <div class="w-75 p-3" style="background-color: #eee;">Width 75%</div>
+    <div class="w-100 p-3" style="background-color: #eee;">Width 100%</div>
+    <div class="w-auto p-3" style="background-color: #eee;">Width auto</div>
+</div>
+
+<div class="bd-example">
+    <div style="height: 100px; background-color: rgba(255,0,0,0.1);">
+      <div class="h-25 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 25%</div>
+      <div class="h-50 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 50%</div>
+      <div class="h-75 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 75%</div>
+      <div class="h-100 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 100%</div>
+      <div class="h-auto d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height auto</div>
+    </div>
+</div>
+ max-width: 100%; 和 max-height: 100%;
+<div class="bd-example">
+    <svg class="bd-placeholder-img mw-100" width="100%" height="100" 
+            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Max-width 100%" 
+            preserveAspectRatio="xMidYMid slice" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#868e96"></rect>
+            <text x="50%" y="50%" fill="#dee2e6" dy=".3em" text-anchor="middle">Max-width 100%</text></svg>
+
+</div> 
+ 
+
+<div class="bd-example">
+    <div style="height: 100px; background-color: rgba(255,0,0,.1);">
+      <div class="mh-100" style="width: 100px; height: 200px; background-color: rgba(0,0,255,.1);">Max-height 100%</div>
+    </div>
+</div>
+相對於視窗
+<div class="min-vw-100">Min-width 100vw</div>
+<div class="min-vh-100">Min-height 100vh</div>
+<div class="vw-100">Width 100vw</div>
+<div class="vh-100">Height 100vh</div> 
+ 
+ 
+ 
+ 
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

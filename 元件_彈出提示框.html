@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+7
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --breadcrumb-divider:"/";
+}
+
+.h5, h5 {
+    font-size: 1.25rem;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+ 
+</style>
+<script  >
+//var el = document.getElementById('test1');
+//var el = document.querySelector('.box');
+//監聽滑鼠移動事件mousemove，設定好function
+//el.addEventListener('mousemove',function(e){
+//    alert('已觸碰');
+//},false);
+
+ 
+
+function click1 (element) {
+    var position = getPosition (element);
+
+    //alert("座標: " + position.x + ', ' + position.y);
+
+
+    var elem = document.getElementById('popover177198');
+    if(elem.classList.contains('show')){ 
+    
+        elem.classList.remove("show");
+        elem.classList.add("hidden!");    
+    
+    }else{
+    
+
+         //console.log("data-popper-placement:"+elem.style.getProperty('data-popper-placement'));
+         
+        elem.classList.remove("hidden!");   
+        elem.classList.add("show");
+        
+        var w = element.offsetWidth;    // 返回元素的总宽度
+        var h = element.offsetHeight;    // 返回元素的总高度
+        
+        var top=position.y-(h/2);
+        var left=position.x+w+10;
+        
+        var str1="translate(" + left + "px," + top + "px) ";
+        console.log(str1);
+        
+    
+        elem.style.setProperty('position', 'absolute');       //測試!!可以不需要
+        elem.style.setProperty('margin', '0px');              //測試!!可以不需要
+        elem.style.setProperty('inset', '0px auto auto 0px');  //這個對於位置很重要
+        //elem.style.setProperty('inset', '0px 0px 0px 0px');  //改成這樣.會產生什麼後果???
+        elem.style.setProperty('transform', str1);              //這個對於位置很重要    
+    
+    }
+
+
+
+    
+
+//  transform:translate(602px,1836px)    
+}
+
+
+function click2 (element1,element2) {
+    var position = getPosition (element1);
+    var elem2 = document.getElementById(element2);
+    
+    
+    var pos= elem2.getAttribute('data-popper-placement');
+    console.log('data-popper-placement:'+pos);
+    
+    var w1 = element1.offsetWidth;    // 返回元素的总宽度
+    var h1 = element1.offsetHeight;    // 返回元素的总高度    
+        
+    var rect = document.getElementById(element2).getBoundingClientRect();   //這 getBoundingClientRect() 方法返回元素的大小。它返回一個 DOMRect 具有寬度、高度、左、上、右、下、x 和 y 特性。返回的元素的寬度和高度可以是小數(與上述屬性不同)，並且包括填充和邊框。
+    var w2 = rect.width;
+    var h2 = rect.height;
+    
+    console.log('標籤的寬*高:' + `${w2} * ${h2} ` );
+
+        var x=0;
+        var y=0;
+    
+    if(elem2.classList.contains('show')){ 
+    
+        elem2.classList.remove("show");
+        elem2.classList.add("hidden!");    
+    
+    }else{
+    
+         
+        elem2.classList.remove("hidden!");   
+        elem2.classList.add("show");
+        
+
+        switch (pos) {
+          case 'top':
+            elem2.style.setProperty('position', 'absolute');       //測試!!可以不需要
+            elem2.style.setProperty('margin', '0px');              //測試!!可以不需要
+            elem2.style.setProperty('inset', '0px auto  auto 0px');  //這個對於位置很重要
+            //elem.style.setProperty('inset', '0px 0px 0px 0px');  //改成這樣.會產生什麼後果???
+
+            var rect = document.getElementById(element2).getBoundingClientRect(); //標籤要顯示.才會有寬*高
+            w2 = rect.width;
+            h2 = rect.height;
+    
+            console.log('標籤的寬*高:' + `${w2} * ${h2} ` );            
+        
+            x=position.x+(w1-w2)/2;            
+            y=position.y-h2-5 ;
+            
+            var str1="translate(" + x + "px," + y + "px) ";
+            console.log(str1);            
+            
+            elem2.style.setProperty('transform', str1);              //這個對於位置很重要    
+            break;        
+          case 'right':
+
+        
+            elem2.style.setProperty('position', 'absolute');       //測試!!可以不需要
+            elem2.style.setProperty('margin', '0px');              //測試!!可以不需要
+            elem2.style.setProperty('inset', '0px auto auto 0px');  //這個對於位置很重要
+            //elem.style.setProperty('inset', '0px 0px 0px 0px');  //改成這樣.會產生什麼後果???
+
+            var rect = document.getElementById(element2).getBoundingClientRect(); //標籤要顯示.才會有寬*高
+            w2 = rect.width;
+            h2 = rect.height;
+    
+            console.log('標籤的寬*高:' + `${w2} * ${h2} ` ); 
+            
+            y=position.y-(h2-h1)/2;
+            x=position.x+w1+10;
+            
+            var str1="translate(" + x + "px," + y + "px) ";
+            console.log(str1);            
+            
+            elem2.style.setProperty('transform', str1);              //這個對於位置很重要                
+            
+            break;
+
+          case 'left':
+            elem2.style.setProperty('position', 'absolute');       //測試!!可以不需要
+            elem2.style.setProperty('margin', '0px');              //測試!!可以不需要
+            elem2.style.setProperty('inset', '0px auto auto 0px');  //這個對於位置很重要
+            //elem.style.setProperty('inset', '0px 0px 0px 0px');  //改成這樣.會產生什麼後果???
+            
+            var rect = document.getElementById(element2).getBoundingClientRect(); //標籤要顯示.才會有寬*高
+            w2 = rect.width;
+            h2 = rect.height;
+    
+            console.log('標籤的寬*高:' + `${w2} * ${h2} ` ); 
+            
+            x=position.x-w2-5;         
+            y=position.y-(h2-h1)/2;            
+            
+             var str1="translate(" + x + "px," + y + "px) ";
+            console.log(str1);     
+            
+            elem2.style.setProperty('transform', str1);              //這個對於位置很重要    
+            break;    
+            
+          case 'bottom':
+            elem2.style.setProperty('position', 'absolute');       //測試!!可以不需要
+            elem2.style.setProperty('margin', '0px');              //測試!!可以不需要
+            elem2.style.setProperty('inset', '0px  auto auto 0px');  //這個對於位置很重要
+            //elem.style.setProperty('inset', '0px 0px 0px 0px');  //改成這樣.會產生什麼後果???
+            
+             var rect = document.getElementById(element2).getBoundingClientRect(); //標籤要顯示.才會有寬*高
+            w2 = rect.width;
+            h2 = rect.height;
+    
+            console.log('標籤的寬*高:' + `${w2} * ${h2} ` ); 
+            
+            x=position.x+(w1-w2)/2;         
+            y=position.y+h1+5;
+
+            var str1="translate(" + x + "px," + y + "px) ";
+            console.log(str1);            
+            
+            elem2.style.setProperty('transform', str1);              //這個對於位置很重要 
+
+
+            break;
+
+        }        
+
+        
+    
+    
+    }
+
+
+
+    
+
+//  transform:translate(602px,1836px)    
+}
+
+
+function getPosition (element) {
+  var x = 0;
+  var y = 0;
+  // 搭配上面的示意圖可比較輕鬆理解為何要這麼計算
+  while ( element ) {
+    x += element.offsetLeft - element.scrollLeft + element.clientLeft;
+    y += element.offsetTop - element.scrollLeft + element.clientTop;
+    element = element.offsetParent;
+  }
+  console.log(x);
+  console.log(y);
+
+  return { x: x, y: y };
+}
+
+
+//不可砍
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+var screenX = document.querySelector('.screenX');        
+var screenY = document.querySelector('.screenY');        
+var pageX = document.querySelector('.pageX');        
+var pageY = document.querySelector('.pageY');        
+var clientX = document.querySelector('.clientX');        
+var clientY = document.querySelector('.clientY'); 
+
+
+function getPosition2(event) {  
+var e = event || window.event; 
+  screenX.textContent = e.screenX;                    
+  screenY.textContent = e.screenY;                    
+  pageX.textContent = e.pageX;                   
+  pageY.textContent = e.pageY;                     
+  clientX.textContent = e.clientX;                   
+  clientY.textContent = e.clientY;
+}
+function showCoords(event) {
+  let x = event.screenX;
+  let y = event.screenY;
+  let text = "X coords: " + x + ", Y coords: " + y;
+  document.getElementById("demo").innerHTML = text;
+}
+
+var el = document.body;      
+//document.addEventListener('mousemove', getPosition2, false); 
+
+/*document.addEventListener("mousemove", function(e){
+    console.log(e.screenX);
+});*/
+</script>
+
+</head>
+<body onclick="showCoords(event)">
+參考:https://www.techiedelight.com/zh-tw/get-width-and-height-of-element-javascript/<BR>
+取得座標:<p id="demo"></p>
+ 
+     <ul>
+        <li>screenX: <span class="screenX"></span> screenY: <span class="screenY"></span></li>
+        <li>pageX: <span class="pageX"></span> pageY: <span class="pageY"></span> </li>
+        <li>clientX: <span class="clientX"></span> clientY: <span class="clientY"></span></li>
+    </ul>
+ 
+ 
+範例
+<div class="bd-example">
+    <button onclick="click1(this)" type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" title="" data-bs-content="And here's some amazing content. It's very engaging. Right?" data-bs-original-title="Popover title" aria-describedby="popover595785">Click to toggle popover</button>
+</div>
+<div class="popover fade bs-popover-end  hidden! " role="tooltip" id="popover177198"  data-popper-placement="right">
+    <div class="popover-arrow" style="position: absolute; top: 0px; transform: translate(0px, 47px);"></div>
+    <h3 class="popover-header">Popover title</h3>
+    <div class="popover-body">And here's some amazing content. It's very engaging. Right?</div>
+</div>
+四個方向
+<div class="bd-example">
+    <button onclick="click2(this,'popover137863')" type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Top popover" data-bs-original-title="" title="" aria-describedby="popover137863">
+      Popover on top
+    </button>
+    <button onclick="click2(this,'popover987702')" type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Right popover" data-bs-original-title="" title="" aria-describedby="popover196572">
+      Popover on right
+    </button>
+    <button onclick="click2(this,'popover431525')" type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover" data-bs-original-title="" title="" aria-describedby="popover801594">
+      Popover on bottom
+    </button>
+    <button onclick="click2(this,'popover627143')" type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Left popover" data-bs-original-title="" title="" aria-describedby="popover470402">
+      Popover on left
+    </button>
+</div>
+<div class="popover fade   hidden! bs-popover-top" role="tooltip" id="popover137863" data-popper-placement="top" >
+    <div class="popover-arrow" style="position: absolute; transform: translate(50px, 0px); left: 0px;"></div>
+    <div class="popover-body">Top popover</div>
+</div>
+<div class="popover fade   hidden! bs-popover-end" role="tooltip" id="popover987702"  data-popper-placement="right">
+    <div class="popover-arrow" style="position: absolute; top: 0px; transform: translate(0px, 19px);"></div>
+    <div class="popover-body">Right popover</div>
+</div>
+<div class="popover fade   hidden! bs-popover-bottom" role="tooltip" id="popover431525" data-popper-placement="bottom">
+    <div class="popover-arrow" style="position: absolute; left: 0px; transform: translate(62px, 0px);"></div>
+    <div class="popover-body">Bottom popover</div>
+</div>
+<div class="popover fade hidden! bs-popover-start" role="tooltip" id="popover627143"  data-popper-placement="left">
+    <div class="popover-arrow" style="position: absolute; top: 0px; transform: translate(0px, 19px);"></div>
+    <div class="popover-body">Left popover</div>
+</div>
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

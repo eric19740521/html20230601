@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+img, svg {
+    vertical-align: middle;
+} 
+text {
+    display: block;
+    white-space: nowrap;
+} 
+
+
+
+</style>
+</head>
+<body >
+
+ 
+border用bs-border語法<BR>
+邊框
+增加
+ <div class="bd-example bd-example-border-utils">
+    <span class="bs-border"></span>
+    <span class="bs-border-top"></span>
+    <span class="bs-border-end"></span>
+    <span class="bs-border-bottom"></span>
+    <span class="bs-border-start"></span>
+</div>
+減少
+<div class="bd-example bd-example-border-utils bd-example-border-utils-0">
+    <span class="bs-border-0"></span>
+    <span class="bs-border-top-0"></span>
+    <span class="bs-border-end-0"></span>
+    <span class="bs-border-bottom-0"></span>
+    <span class="bs-border-start-0"></span>
+</div> 
+邊框顏色
+<div class="bd-example bd-example-border-utils">
+
+    <span class="bs-border bs-border-primary"></span>
+    <span class="bs-border bs-border-secondary"></span>
+    <span class="bs-border bs-border-success"></span>
+    <span class="bs-border bs-border-danger"></span>
+    <span class="bs-border bs-border-warning"></span>
+    <span class="bs-border bs-border-info"></span>
+    <span class="bs-border bs-border-light"></span>
+    <span class="bs-border bs-border-dark"></span>
+    <span class="bs-border bs-border-white"></span>
+</div>
+邊框寬度
+<div class="bd-example bd-example-border-utils">
+    <span class="bs-border bs-border-1"></span>
+    <span class="bs-border bs-border-2"></span>
+    <span class="bs-border bs-border-3"></span>
+    <span class="bs-border bs-border-4"></span>
+    <span class="bs-border bs-border-5"></span>
+</div>
+Border-radius<BR>
+text-anchor="middle"這個master css 翻不出來,另外也加入display:inline-block;
+<div class="bd-example bd-example-rounded-utils">
+    <svg class="bd-placeholder-img bs-rounded" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em" text-anchor="middle">75x75</text></svg>
+
+    <svg class="bd-placeholder-img bs-rounded-top" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example top rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example top rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em" text-anchor="middle">75x75</text></svg>
+
+    <svg class="bd-placeholder-img bs-rounded-end" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example right rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example right rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em" text-anchor="middle">75x75</text></svg>
+
+    <svg class="bd-placeholder-img bs-rounded-bottom" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example bottom rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example bottom rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em" text-anchor="middle">75x75</text></svg>
+
+    <svg class="bd-placeholder-img bs-rounded-start" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example left rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example left rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em" text-anchor="middle">75x75</text></svg>
+
+    <svg class="bd-placeholder-img bs-rounded-circle" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Completely round image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Completely round image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em" text-anchor="middle">75x75</text></svg>
+
+    <svg class="bd-placeholder-img bs-rounded-pill" width="150" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rounded pill image: 150x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Rounded pill image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em" text-anchor="middle">150x75</text></svg>
+
+</div>
+尺寸<BR>
+text-anchor="middle"這個master css 翻不出來,另外也加入display:inline-block;
+<div class="bd-example bd-example-rounded-utils  ">
+    <svg class="bd-placeholder-img bs-rounded-0 " width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example non-rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example non-rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em" text-anchor="middle">75x75</text></svg>
+
+    <svg class="bd-placeholder-img bs-rounded-1" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example small rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example small rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em" text-anchor="middle">75x75</text></svg>
+
+    <svg class="bd-placeholder-img bs-rounded-2" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example default rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example default rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em" text-anchor="middle">75x75</text></svg>
+
+    <svg class="bd-placeholder-img bs-rounded-3" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example large rounded image: 75x75" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example large rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em" text-anchor="middle">75x75</text></svg>
+
+</div>
+
+
+
+
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

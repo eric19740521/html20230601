@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+ 
+ 
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/utilities/position/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+定位值
+<div class="bd-example bd-example-row"> 
+    <div class="position-static">...</div>
+    <div class="position-relative">...</div>
+    <div class="position-absolute">...</div>
+    <div class="position-fixed">...</div>
+    <div class="position-sticky">...</div>
+</div>  
+排列元素
+<div class="bd-example bd-example-position-utils">
+    <div class="position-relative">
+      <div class="position-absolute top-0 start-0"></div>
+      <div class="position-absolute top-0 end-0"></div>
+      <div class="position-absolute top-50 start-50"></div>
+      <div class="position-absolute bottom-50 end-50"></div>
+      <div class="position-absolute bottom-0 start-0"></div>
+      <div class="position-absolute bottom-0 end-0"></div>
+    </div>
+</div>
+元素置中
+<div class="bd-example bd-example-position-utils">
+    <div class="position-relative">
+      <div class="position-absolute top-0 start-0 translate-middle"></div>
+      <div class="position-absolute top-0 start-50 translate-middle"></div>
+      <div class="position-absolute top-0 start-100 translate-middle"></div>
+      <div class="position-absolute top-50 start-0 translate-middle"></div>
+      <div class="position-absolute top-50 start-50 translate-middle"></div>
+      <div class="position-absolute top-50 start-100 translate-middle"></div>
+      <div class="position-absolute top-100 start-0 translate-middle"></div>
+      <div class="position-absolute top-100 start-50 translate-middle"></div>
+      <div class="position-absolute top-100 start-100 translate-middle"></div>
+    </div>
+</div>
+.translate-middle-x 或 .translate-middle-y 類別
+<div class="bd-example bd-example-position-utils">
+    <div class="position-relative">
+      <div class="position-absolute top-0 start-0"></div>
+      <div class="position-absolute top-0 start-50 translate-middle-x"></div>
+      <div class="position-absolute top-0 end-0"></div>
+      <div class="position-absolute top-50 start-0 translate-middle-y"></div>
+      <div class="position-absolute top-50 start-50 translate-middle"></div>
+      <div class="position-absolute top-50 end-0 translate-middle-y"></div>
+      <div class="position-absolute bottom-0 start-0"></div>
+      <div class="position-absolute bottom-0 start-50 translate-middle-x"></div>
+      <div class="position-absolute bottom-0 end-0"></div>
+    </div>
+</div>
+範例
+<div class="bd-example bd-example-position-examples d-flex justify-content-around">
+    <button type="button" class="btn btn-primary position-relative">
+      Mails <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">+99 <span class="visually-hidden">unread messages</span></span>
+    </button>
+
+    <button type="button" class="btn btn-dark position-relative">
+      Marker <svg width="1em" height="1em" viewBox="0 0 16 16" class="position-absolute top-100 start-50 translate-middle mt-1 bi bi-caret-down-fill" fill="#212529" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"></path></svg>
+    </button>
+
+    <button type="button" class="btn btn-primary position-relative">
+      Alerts <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"><span class="visually-hidden">unread messages</span></span>
+    </button>
+</div>
+創造新的元件
+<div class="bd-example bd-example-position-examples">
+    <div class="position-relative m-4">
+      <div class="progress" style="height: 1px;">
+        <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary bs-rounded-pill" style="width: 2rem; height:2rem;">1</button>
+      <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-primary bs-rounded-pill" style="width: 2rem; height:2rem;">2</button>
+      <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary bs-rounded-pill" style="width: 2rem; height:2rem;">3</button>
+    </div>
+</div>
+
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

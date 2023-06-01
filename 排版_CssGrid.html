@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+}
+ 
+ 
+ 
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/layout/css-grid/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+網格 1列有12格!!!!<BR>
+Three columns<BR>
+grid類別在master css裡面屬於關鍵字,所以我把它命名為g-grid類別
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid">
+      <div class="g-col-4">.g-col-4</div>
+      <div class="g-col-4">.g-col-4</div>
+      <div class="g-col-4">.g-col-4</div>
+    </div>
+</div>  
+響應式
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid">
+      <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
+      <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
+      <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
+    </div>
+</div> 
+換行
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid">
+      <div class="g-col-6">.g-col-6</div>
+      <div class="g-col-6">.g-col-6</div>
+
+      <div class="g-col-6">.g-col-6</div>
+      <div class="g-col-6">.g-col-6</div>
+    </div>
+</div> 
+Starts
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid">
+      <div class="g-col-3 g-start-2">.g-col-3 .g-start-2</div>
+      <div class="g-col-4 g-start-6">.g-col-4 .g-start-6</div>
+    </div>
+</div> 
+Auto columns
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid">
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+    </div>
+</div> 
+
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid">
+      <div class="g-col-6">.g-col-6</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+    </div>
+</div> 
+巢狀結構
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid $columns:3" >
+      <div>
+        First auto-column
+        <div class="grid">
+          <div>Auto-column</div>
+          <div>Auto-column</div>
+        </div>
+      </div>
+      <div>
+        Second auto-column
+        <div class="g-grid $columns:12" >
+          <div class="g-col-6">6 of 12</div>
+          <div class="g-col-4">4 of 12</div>
+          <div class="g-col-2">2 of 12</div>
+        </div>
+      </div>
+      <div>Third auto-column</div>
+    </div>
+</div>
+客製化<BR>
+這邊我簡化參數名稱了<BR>
+--bs-rows ==> --rows<BR>
+--bs-columns	==> --columns<BR>
+--bs-gap	   ==> --gap	<BR>
+
+
+No grid classes
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid $columns:3" >
+      <div>Auto-column</div>
+      <div>Auto-column</div>
+      <div>Auto-column</div>
+    </div>
+</div>
+
+Columns and gaps
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid $columns:4 $gap:5rem" >
+      <div class="g-col-2">.g-col-2</div>
+      <div class="g-col-2">.g-col-2</div>
+    </div>
+</div>
+
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid $columns:10 $gap:1rem" >
+      <div class="g-col-6">.g-col-6</div>
+      <div class="g-col-4">.g-col-4</div>
+    </div>
+</div>
+
+Adding rows<BR>
+style="grid-row: 2" 這個我改在class裡面<BR>
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid $row:3 $columns:3">
+      <div>Auto-column</div>
+      <div class="g-start-2 grid-row:2" style="">Auto-column</div>
+      <div class="g-start-3 grid-row:3" style="">Auto-column</div>
+    </div>
+</div>
+Gaps<BR>
+row-gap:0  要用!important;<BR>
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid row-gap:0!" style="">
+      <div class="g-col-6">.g-col-6</div>
+      <div class="g-col-6">.g-col-6</div>
+
+      <div class="g-col-6">.g-col-6</div>
+      <div class="g-col-6">.g-col-6</div>
+    </div>
+</div>
+
+gap有兩個參數要設row-gap/column-gap
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid $gap:0.25rem|1rem" >
+      <div class="g-col-6">.g-col-6</div>
+      <div class="g-col-6">.g-col-6</div>
+
+      <div class="g-col-6">.g-col-6</div>
+      <div class="g-col-6">.g-col-6</div>
+    </div>
+</div>
+Sass
+<div class="bd-example bd-example-cssgrid "> 
+    <div class="g-grid $columns:18 $gap:0.5rem" >
+      <div style="grid-column: span 14;">14 columns</div>
+      <div class="g-col-4">.g-col-4</div>
+    </div>
+</div>
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

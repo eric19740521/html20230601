@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+} 
+ a {
+    color: #0d6efd;
+    text-decoration: underline;
+}
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/utilities/interactions/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+文字選擇
+<div class="bd-example">
+    <p class="user-select-all">當使用者點選時，這個段落將會被全選。</p>
+    <p class="user-select-auto">這個段落具有預設的選取行為。</p>
+    <p class="user-select-none">當使用者點選的時候，此段落將不會被選取</p>
+</div>
+Pointer 事件
+<div class="bd-example">
+    <p><a href="#" class="pe-none" tabindex="-1" aria-disabled="true">這個連結</a> 不可被點選</p>
+    <p><a href="#" class="pe-auto">這個連結</a> 可以被點選 (此為預設行為).</p>
+    <p class="pe-none"><a href="#" tabindex="-1" aria-disabled="true">這個連結</a> 無法被點選，因為其 <code>pointer-events</code> 屬性繼承自父層。然而 <a href="#" class="pe-auto">這個連結</a> 具有 <code>pe-auto</code> 類別，因此可以被點選。</p>
+</div> 
+
+
+	 <BR> <BR> <BR> <BR> <BR> <BR>
+</body>
+</html>

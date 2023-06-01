@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--script src="https://cdn.master.co/css@beta"></script-->    
+    <script src="v2/master.css.js"></script>   
+    <script src="v2/css@beta.js"></script>
+    <link rel="stylesheet" href="v2/normal.css@beta.css">
+    <link href="v2/keyframes.css" rel="stylesheet">
+
+
+    <script  >	
+
+ 
+    </script>	
+<style>	
+:root {         
+    --g-x: 16;              /*不要加單位px*/
+    --g-y: 16;              /*不要加單位px*/
+    --spacer: 16;           /*不要加單位px*/
+    --rows:1;               /*CSS Grid*/
+    --columns:12;            /*CSS Grid*/
+    --gap:1.5rem;                /*CSS Grid  要加單位*/
+    
+    --gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);    
+}
+
+@keyframes checkbox1 {
+    from {  top: 60%;  }
+    to {    top: 0%;   }
+}
+ 
+</style>
+</head>
+<body >
+
+參考:<BR>
+https://bootstrap5.hexschool.com/docs/5.1/forms/checks-radios/<BR>
+將裡面的範例,以master css實現出來!!<BR> 
+
+
+
+form-check<BR>
+<div class="bd-example"> 
+    <div class="form-check">
+      <input class="form-checkbox" type="checkbox" value="" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Default checkbox
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-checkbox form-checkbox-secondary" type="checkbox" value="" id="flexCheckChecked" checked>
+      <label class="form-check-label" for="flexCheckChecked">
+        Checked checkbox
+      </label>
+    </div>
+</div> 
+禁用<BR>
+<div class="bd-example"> 
+    <div class="form-check">
+      <input class="form-checkbox " type="checkbox" value="" id="flexCheckDisabled" disabled>
+      <label class="form-check-label" for="flexCheckDisabled">
+        Disabled checkbox
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-checkbox" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+      <label class="form-check-label" for="flexCheckCheckedDisabled">
+        Disabled checked checkbox
+      </label>
+    </div>
+
+</div> 
+
+選項按鈕<BR>
+<div class="bd-example"> 
+    <div class="form-check">
+      <input class="form-radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+      <label class="form-check-label" for="flexRadioDefault1">
+        Default radio
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-radio form-radio-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+      <label class="form-check-label" for="flexRadioDefault2">
+        Default checked radio
+      </label>
+    </div> 
+</div> 
+禁用<BR>
+<div class="bd-example"> 
+    <div class="form-check">
+      <input class="form-radio" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+      <label class="form-check-label" for="flexRadioDisabled">
+        Disabled radio
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-radio" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled" checked disabled>
+      <label class="form-check-label" for="flexRadioCheckedDisabled">
+        Disabled checked radio
+      </label>
+    </div>
+
+</div> 
+行內<BR>
+<div class="bd-example"> 
+    <div class="form-check form-check-inline">
+      <input class="form-checkbox" type="checkbox" id="inlineCheckbox1" value="option1">
+      <label class="form-check-label" for="inlineCheckbox1">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-checkbox" type="checkbox" id="inlineCheckbox2" value="option2">
+      <label class="form-check-label" for="inlineCheckbox2">2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-checkbox" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
+      <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+    </div>
+
+</div> 
+
+<div class="bd-example"> 
+    <div class="form-check form-check-inline">
+      <input class="form-radio" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+      <label class="form-check-label" for="inlineRadio1">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-radio" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+      <label class="form-check-label" for="inlineRadio2">2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-radio" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
+      <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+    </div>
+
+</div>
+
+沒有標籤<BR>
+<div class="bd-example"> 
+    <div>
+      <input class="form-checkbox" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+    </div>
+
+    <div>
+      <input class="form-radio" type="radio" name="radioNoLabel" id="radioNoLabel1" value="" aria-label="...">
+    </div>
+
+</div>
+切換開關<BR>
+<div class="bd-example"> 
+    <div class="form-check form-switch">
+      <input class="switch" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+      <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+    </div>
+    <div class="form-check form-switch">
+      <input class="switch" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+      <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+    </div>
+    <div class="form-check form-switch">
+      <input class="switch" type="checkbox" role="switch" id="flexSwitchCheckDisabled" disabled>
+      <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox input</label>
+    </div>
+    <div class="form-check form-switch">
+      <input class="switch" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked disabled>
+      <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked switch checkbox input</label>
+    </div>
+
+</div>
+
+
+ 
+
+
+
+
+	 <BR> <BR>
+</body>
+</html>
